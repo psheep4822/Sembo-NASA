@@ -134,6 +134,167 @@ function missoesFixas() {
                 fonte: "NASA – Orion Power Systems Specifications."
             }
         ];
+    } else if (dia === 4) {
+        missoesFixasAtuais = [
+            {
+                id: "fixa1",
+                titulo: "Análise de Amostras Biológicas (OSDR)",
+                descricao: "O OSDR (Open Science Data Repository) armazena dados de pesquisas biológicas sobre como o corpo humano e microrganismos reagem à microgravidade.",
+                opcaoATexto: "Estudo Detalhado (-10 Energia, +25 Pesquisa)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 25 },
+                opcaoBTexto: "Descartar Amostra (0 Energia, 0 Recursos)",
+                acaoB: {},
+                fonte: "NASA – Open Science Data Repository (OSDR)."
+            },
+            {
+                id: "fixa2",
+                titulo: "Reciclagem de Água da Cabine",
+                descricao: "Processo de filtragem por osmose reversa e oxidação catalítica que transforma umidade do ar e suor em água potável.",
+                opcaoATexto: "Purificação Avançada (-10 Energia, +10 Saúde)",
+                acaoA: { bateriaTotal: -10, saudeTripulacao: 10 },
+                opcaoBTexto: "Usar Estoque de Reserva (-15 Oxigênio, 0 Energia)",
+                acaoB: { oxigenTotal: -15 },
+                fonte: "NASA – Water Recovery System (WRS) Technical Brief."
+            }
+        ];
+    } else if (dia === 5) {
+        missoesFixasAtuais = [
+            {
+                id: "fixa1",
+                titulo: "Inspeção de Vazamentos no Módulo",
+                descricao: "Monitoramento contínuo da pressão interna para detectar microfissuras causadas por variações térmicas e micrometeoritos.",
+                opcaoATexto: "Selagem Reforçada (-15 Energia, +10 Saúde)",
+                acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
+                opcaoBTexto: "Ignorar Pequeno Alerta (0 Energia, -15 Saúde)",
+                acaoB: { saudeTripulacao: -15 },
+                fonte: "NASA – Cabin Pressure and Leak Detection Protocols."
+            },
+            {
+                id: "fixa2",
+                titulo: "Atualização do Software de Navegação",
+                descricao: "Pacotes de código enviados por Houston para otimizar os computadores de bordo e o sistema de orientação autônoma.",
+                opcaoATexto: "Baixar Pacote Completo (-20 Energia, +15 Pesquisa)",
+                acaoA: { bateriaTotal: -20, pesquisaTotal: 15 },
+                opcaoBTexto: "Apenas Correção de Bugs (-5 Energia, +5 Pesquisa)",
+                acaoB: { bateriaTotal: -5, pesquisaTotal: 5 },
+                fonte: "NASA – Flight Software Engineering Standards."
+            }
+        ];
+    } else if (dia === 6) {
+        missoesFixasAtuais = [
+        {
+            id: "fixa1",
+            titulo: "Varredura de Micrometeoritos",
+            descricao: "Uso de radar de curto alcance para detectar detritos espaciais e poeira em alta velocidade na rota da nave.",
+            opcaoATexto: "Manobra Evasiva (-15 Energia, +10 Saúde)",
+            acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
+            opcaoBTexto: "Manter Rumo (0 Energia, -10 Saúde)",
+            acaoB: { saudeTripulacao: -10 },
+            fonte: "NASA – Orbital Debris Program Office."
+        },
+        {
+            id: "fixa2",
+            titulo: "Teste de Ignição dos Propulsores RCS",
+            descricao: "O RCS (Reaction Control System) utiliza pequenos jatos de manobra para orientar e estabilizar a cápsula no vácuo.",
+            opcaoATexto: "Teste Completo (-20 Energia, +10 Pesquisa)",
+            acaoA: { bateriaTotal: -20, pesquisaTotal: 10 },
+            opcaoBTexto: "Teste Parcial (-5 Energia, 0 Recursos)",
+            acaoB: { bateriaTotal: -5 },
+            fonte: "NASA – Orion Reaction Control System Manual."
+        }
+    ];
+    } else if (dia === 7) {
+        missoesFixasAtuais = [
+            {
+                id: "fixa1",
+                titulo: "Relatório de Estresse Psicológico",
+                descricao: "Acompanhamento comportamental e psicológico da equipe isolada no espaço profundo por dias seguidos.",
+                opcaoATexto: "Sessão de Descanso da Tripulação (-10 Oxigênio, +20 Saúde)",
+                acaoA: { oxigenTotal: -10, saudeTripulacao: 20 },
+                opcaoBTexto: "Manter Foco no Trabalho (0 Oxigênio, +10 Pesquisa)",
+                acaoB: { pesquisaTotal: 10 },
+                fonte: "NASA – Behavioral Health and Performance (BHP) Guidelines."
+            },
+            {
+                id: "fixa2",
+                titulo: "Sincronização do Relógio Atômico",
+                descricao: "Uso de relógios de precisão extrema baseados em transições atômicas para calcular efemérides e trajetórias no espaço.",
+                opcaoATexto: "Calibração Fina (-10 Energia, +5 Pesquisa)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 5 },
+                opcaoBTexto: "Usar Hora Padrão (0 Energia, 0 Recursos)",
+                acaoB: {},
+                fonte: "NASA – Deep Space Atomic Clock (DSAC) Project."
+            }
+        ];
+    } else if (dia === 8) {
+        missoesFixasAtuais = [
+            {
+                id: "fixa1",
+                titulo: "Manutenção das Válvulas de Alívio",
+                descricao: "Válvulas mecânicas de segurança que impedem o acúmulo excessivo de pressão interna na escotilha e tanques.",
+                opcaoATexto: "Limpeza Completa (-15 Energia, +10 Saúde)",
+                acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
+                opcaoBTexto: "Adiar Manutenção (0 Energia, -5 Saúde)",
+                acaoB: { saudeTripulacao: -5 },
+                fonte: "NASA – Pressure Relief Mechanisms Engineering."
+            },
+            {
+                id: "fixa2",
+                titulo: "Verificação Térmica dos Computadores",
+                descricao: "Gerenciamento do calor gerado pelos processadores centrais da nave através de malhas de refrigeração líquida.",
+                opcaoATexto: "Reiniciar com Refrigeração (-10 Energia, +5 Pesquisa)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 5 },
+                opcaoBTexto: "Continuar Aquecido (0 Energia, 0 Recursos)",
+                acaoB: {},
+                fonte: "NASA – Avionics Thermal Control System."
+            }
+        ];
+    } else if (dia === 9) {
+        missoesFixasAtuais = [
+            {
+                id: "fixa1",
+                titulo: "Teste de Luzes de Emergência",
+                descricao: "Verificação dos circuitos de iluminação secundária alimentados por barramentos elétricos isolados.",
+                opcaoATexto: "Substituir Lâmpadas (-5 Energia, +5 Saúde)",
+                acaoA: { bateriaTotal: -5, saudeTripulacao: 5 },
+                opcaoBTexto: "Economizar Bateria (0 Energia, 0 Recursos)",
+                acaoB: {},
+                fonte: "NASA – Emergency Lighting Systems Specification."
+            },
+            {
+                id: "fixa2",
+                titulo: "Monitoramento do Hidrogênio Líquido",
+                descricao: "Controle criogênico do combustível armazenado em temperaturas próximas ao zero absoluto.",
+                opcaoATexto: "Esvaziar Bolsões de Gás (-15 Energia, +10 Saúde)",
+                acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
+                opcaoBTexto: "Deixar Como Está (0 Energia, -10 Energia futuramente)",
+                acaoB: {},
+                fonte: "NASA – Cryogenic Propellant Storage Management."
+            }
+        ];
+    } else if (dia === 10) {
+        missoesFixasAtuais = [
+            {
+                id: "fixa1",
+                titulo: "Calibração das Câmeras Externas",
+                descricao: "Ajuste de lentes ópticas de alta resolução usadas para registrar a geologia lunar e dados visuais da missão.",
+                opcaoATexto: "Capturar Fotos em Alta Resolução (-10 Energia, +20 Pesquisa)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 20 },
+                opcaoBTexto: "Modo Econômico (-5 Energia, +5 Pesquisa)",
+                acaoB: { bateriaTotal: -5, pesquisaTotal: 5 },
+                fonte: "NASA – Artemis Optical Navigation and Imagery."
+            },
+            {
+                id: "fixa2",
+                titulo: "Auditoria de Rations (Alimentação)",
+                descricao: "Controle calórico e nutricional dos pacotes de comida desidratada liofilizada da tripulação.",
+                opcaoATexto: "Ração Completa e Nutritiva (-10 Oxigênio, +15 Saúde)",
+                acaoA: { oxigenTotal: -10, saudeTripulacao: 15 },
+                opcaoBTexto: "Racionar Comida (0 Oxigênio, -10 Saúde)",
+                acaoB: { saudeTripulacao: -10 },
+                fonte: "NASA – Space Food Systems Laboratory Guidelines."
+            }
+        ];
     }
 }
 
