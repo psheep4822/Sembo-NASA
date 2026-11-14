@@ -16,13 +16,16 @@
 
     <div id="telaMenu" class="tela-menu">
         <h1 class="faixaFundo">Atlas Mission</h1>
-        <button id="startButton" onclick="startGame()">START</button>
+        <div class="fullwidth">
+            <img src="botoes/start.png" id="startButton" class="imgButton" onclick="startGame()">
+        </div>
     </div>
 
     <div id="telaJogo" class="escondido">
         <p id="diasPassados" class="texts">Current Day: 0</p>
-        <button id="btnPassagemDias" class="adicionar escondido" onclick="passagemDias()">Pass Day</button>
-
+        <div class="fullwidth">
+            <img id="btnPassagemDias" class="escondido imgButton" src="botoes/newDay.png" onclick="passagemDias()">
+        </div>
         <p id="bateriaNave" class="texts">Spaceship Energy: 100</p>
         <p id="oxigenNave" class="texts">Spaceship Oxygen: 100</p>
         <p id="pesquisaNave" class="texts">Reseach Points: 0</p>
@@ -30,7 +33,7 @@
 
         <img src="blocoNotas.png" alt="Mission Post-it Block" id="bloco" onclick="missoes()">
 
-        <button class="sair" onclick="sair()">Exit</button>
+        <img src="botoes/exit.png" id="sair" onclick="sair()">
     </div>
 
     <div id="telaMissoes" class="escondido">
