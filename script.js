@@ -363,7 +363,98 @@ function sortearMissao() {
             opcaoBTexto: "Economizar ao Máximo <strong>(0 Energia, -15 Saúde)</strong>",
             acaoB: { bateriaTotal: 0, saudeTripulacao: -15, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – Lunar Orbital Mechanics"
+        },
+        {
+            titulo: "Flutuação de Pressão no Traje EVA",
+            descricao: "Uma EVA (Extravehicular Activity) é qualquer atividade fora da nave; falhas de pressão no traje colocam o astronauta em risco de hipóxia.",
+            opcaoATexto: "Reparo de Emergência (-15 Energia, +10 Saúde)",
+            acaoA: { bateriaTotal: -15, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoBTexto: "Ajustar Válvula Manual (-5 Oxigênio, -10 Saúde)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: -10, oxigenTotal: -5, pesquisaTotal: 0 },
+            fonte: "NASA – Extravehicular Mobility Unit (EMU) Safety Protocols."
+        },
+        {
+            titulo: "Impacto de Micrometeorito Menor",
+            descricao: "Pequeno fragmento rochoso espacial que colide em hipervelocidade com a estrutura da espaçonave.",
+            opcaoATexto: "Selar com Resina (-10 Energia, +5 Saúde)",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 5, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoBTexto: "Deixar Vazamento Mínimo (-15 Oxigênio, 0 Energia)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -15, pesquisaTotal: 0 },
+            fonte: "NASA – Hypervelocity Impact Technology (HVIT)."
+        },
+        {
+            titulo: "Alarme Falso de Incêndio",
+            descricao: "Disparo acidental de sensores ópticos de fumaça devido a partículas de poeira em suspensão na gravidade zero.",
+            opcaoATexto: "Ventilação Forçada de Emergência (-15 Oxigênio, +5 Saúde)",
+            acaoA: { bateriaTotal: 0, saudeTripulacao: 5, oxigenTotal: -15, pesquisaTotal: 0 },
+            opcaoBTexto: "Desligar Alarme (0 Recursos)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
+            fonte: "NASA – Spacecraft Fire Safety Demonstration (Saffire)."
+        },
+        {
+            titulo: "Oportunidade de Dados Cósmicos (GCR)",
+            descricao: "Os GCRs (Galactic Cosmic Rays) são partículas de alta energia vindas de fora do Sistema Solar que bombardeiam o espaço profundo.",
+            opcaoATexto: "Coletar Dados Intensos (-20 Energia, +35 Pesquisa)",
+            acaoA: { bateriaTotal: -20, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 35 },
+            opcaoBTexto: "Recusar para Proteger a Tripulação (0 Energia, +10 Saúde)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
+            fonte: "NASA – Galactic Cosmic Ray Measurements and Shielding."
+        },
+        {
+            titulo: "Falha no Link de Vídeo com Houston",
+            descricao: "Perda temporária da banda larga de comunicação por satélite, exigindo o uso de frequências alternativas de texto.",
+            opcaoATexto: "Reiniciar Antena Principal (-15 Energia, +10 Pesquisa)",
+            acaoA: { bateriaTotal: -15, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
+            opcaoBTexto: "Usar Canal de Texto (-5 Energia, 0 Recursos)",
+            acaoB: { bateriaTotal: -5, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
+            fonte: "NASA – Spacecraft Communications and Navigation (SCaN)."
+        },
+        {
+            titulo: "Superaquecimento no Módulo X-Band",
+            descricao: "A Banda X (X-Band) é uma faixa de radiofrequência usada para transmitir grandes volumes de dados científicos para a Terra, gerando muito calor.",
+            opcaoATexto: "Desligar Sistemas Secundários (-10 Energia, +5 Pesquisa)",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 5 },
+            opcaoBTexto: "Forçar Resfriamento Criogênico (-20 Energia, +10 Saúde)",
+            acaoB: { bateriaTotal: -20, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
+            fonte: "NASA – Deep Space Communications Radio Systems."
+        },
+        {
+            titulo: "Desvio de Rota Gravitacional",
+            descricao: "Alteração sutil na trajetória causada por anomalias gravitacionais locais ao passar perto de corpos celestes.",
+            opcaoATexto: "Queima de Propulsor Extra (-30 Energia, +15 Pesquisa)",
+            acaoA: { bateriaTotal: -30, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 15 },
+            opcaoBTexto: "Ajuste Lento com Inércia (-10 Oxigênio, 0 Energia)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -10, pesquisaTotal: 0 },
+            fonte: "NASA – Orbital Mechanics and Perturbation Analysis."
+        },
+        {
+            titulo: "Congelamento na Linha de Resíduos",
+            descricao: "Bloqueio de dutos de descarte devido à diferença extrema de temperatura entre o lado exposto ao sol e o lado na sombra.",
+            opcaoATexto: "Aquecimento Elétrico (-15 Energia, +5 Saúde)",
+            acaoA: { bateriaTotal: -15, saudeTripulacao: 5, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoBTexto: "Descongelamento Manual (-5 Oxigênio, 0 Energia)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -5, pesquisaTotal: 0 },
+            fonte: "NASA – Environmental Control Thermal Analysis."
+        },
+        {
+            titulo: "Pico de Eficiência Solar Surpresa!",
+            descricao: "Flutuação nos ventos solares que aumenta temporariamente a energia gerada pelos painéis fotovoltaicos da Orion.",
+            opcaoATexto: "Armazenar Baterias (+25 Energia, 0 Desgaste)",
+            acaoA: { bateriaTotal: 25, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoBTexto: "Direcionar para Pesquisa (+15 Energia, +20 Pesquisa)",
+            acaoB: { bateriaTotal: 15, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 20 },
+            fonte: "NASA – Solar Array Performance Reports."
+        },
+        {
+            titulo: "Alerta de Ruído Estrutural na Popa",
+            descricao: "Sons metálicos causados pela expansão e contração térmica rápida dos materiais da estrutura da nave.",
+            opcaoATexto: "Inspeção por Câmera Robótica (-10 Energia, +10 Pesquisa)",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
+            opcaoBTexto: "Ignorar Ruído Térmico (0 Recursos, -10 Saúde)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: -10, oxigenTotal: 0, pesquisaTotal: 0 },
+            fonte: "NASA – Spacecraft Structural Dynamics and Acoustics."
         }
+
     ];
 
     let indice = Math.floor(Math.random() * missoesA.length);
