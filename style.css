@@ -88,16 +88,6 @@ button:hover {
     color: #454545;
     background-color: #ecff1d;
 }
-
-.nasa-logo {
-    display: block;
-    width: 60%;
-    max-width: 200px;
-    height: auto;
-    margin: 30px auto;
-    border-radius: 20px;
-    cursor: pointer;
-}
 @media (max-width: 480px) {
     body {
         padding: 12px;
