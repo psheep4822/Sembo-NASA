@@ -1,19 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NASA Space Apps Challenge</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div id="telaMenu" class="tela-menu">
+    <a href="presentation.html">
+        <img src="marcaDagua.png" alt="Sembo Logo" id="marcaDagua">
+    </a>
+
+    <div id="telaMenu" class="tela-menu">
         <h1 class="faixaFundo">Artemis II Mission</h1>
         <button id="startButton" onclick="startGame()">START</button>
-        <a href="presentation.html"> <button>About our project</button> </a>
     </div>
 
-<div id="telaJogo" class="escondido">
+    <div id="telaJogo" class="escondido">
         <p id="diasPassados" class="texts">Current Day: 0</p>
         <button id="btnPassagemDias" class="adicionar escondido" onclick="passagemDias()">Pass Day</button>
 
@@ -59,7 +65,6 @@
         <p id="resultadoV">Congratulations! You survived all the 10 days!</p>
         <button class="sair" onclick="recomecar()">Play Again</button>
     </div>
-
 
     <script src="script.js"></script>
 </body>
