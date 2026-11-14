@@ -146,6 +146,7 @@ button:hover {
     margin: 0;
     padding: 0;
     z-index: 99999999;
+    pointer-events: none;
 }
 
 #bloco {
