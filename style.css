@@ -104,7 +104,8 @@ button:hover {
 
 #telaMenu,
 #telaPerdeu,
-#telaVenceu {
+#telaVenceu,
+#telaMissoes {
     position: fixed;
     top: 0;
     right: 0;
@@ -128,6 +129,10 @@ button:hover {
 
 #telaVenceu {
     background-image: url('cenarios/vitoria.png');
+}
+
+#telaMissoes {
+    background-image: url('cenarios/fundoMissoes.png');
 }
 
 .faixaFundo {
