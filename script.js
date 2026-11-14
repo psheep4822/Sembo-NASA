@@ -267,8 +267,8 @@ function missoesFixas() {
                 descricao: "Controle criogênico do combustível armazenado em temperaturas próximas ao zero absoluto.",
                 opcaoATexto: "Esvaziar Bolsões de Gás (-15 Energia, +10 Saúde)",
                 acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
-                opcaoBTexto: "Deixar Como Está (0 Energia, -10 Energia futuramente)",
-                acaoB: {},
+                opcaoBTexto: "Deixar Como Está (-10 Energia)",
+                acaoB: { bateriaTotal: -10 },
                 fonte: "NASA – Cryogenic Propellant Storage Management."
             }
         ];
@@ -348,7 +348,7 @@ function sortearMissao() {
     let missoesA = [
         {
             titulo: "Alerta de Ejeção de Massa Coronal (CME - DONKI)",
-            descricao: "O DONKI (Space Weather Database Of Notifications, Knowledge, Information) monitora tempestades solares e emissões de plasma do Sol que geram radiação perigosa.",
+            descricao: "O DONKI (Space Weather Database Of Not<strong>ifications, Knowledge, Information) monitora tempestades solares e emissões de plasma do Sol que geram radiação perigosa.",
             opcaoATexto: "Blindagem Total <strong>(-25 Energia, +15 Saúde)</strong>",
             acaoA: { bateriaTotal: -25, saudeTripulacao: 15, oxigenTotal: 0, pesquisaTotal: 0 },
             opcaoBTexto: "Apostar na Sorte <strong>(0 Energia, -30 Saúde)</strong>",
