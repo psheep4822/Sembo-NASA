@@ -125,3 +125,21 @@ button:hover {
     margin: 12px 0;
     line-height: 1.5;
 }
+
+#marcaDagua {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 250px;
+    height: auto;
+    margin: 10;
+    padding: 0;
+    z-index: 99999999;
+}
+
+@media (max-width: 600px) {
+    #marcaDagua {
+        width: 10rem;
+        height: auto
+    }
+}
