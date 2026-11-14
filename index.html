@@ -1,11 +1,65 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Space Apps Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="telaMenu" class="tela-menu">
+        <h1>Missão Artemis II</h1>
+        <button id="startButton" onclick="startGame()">START</button>
+    </div>
 
-<html>
-    <head>
+<div id="telaJogo" class="escondido">
+        <p id="diasPassados" class="texts">Dias Passados: 0</p>
+        <button id="btnPassagemDias" class="adicionar escondido" onclick="passagemDias()">PASSAR DIA</button>
 
-    </head>
+        <p id="bateriaNave" class="texts">Energia da Nave: 100</p>
+        <p id="oxigenNave" class="texts">Oxigênio da Nave: 100</p>
+        <p id="pesquisaNave" class="texts">Pesquisa da Nave: 0</p>
+        <p id="saudeTripulacao" class="texts">Saúde da Tripulação: 100</p>
 
-    <main>
-        
-    </main>
+
+        <img src="teste.jpg" alt="NASA Logo" class="nasa-logo" onclick="missoes()">
+
+        <button class="sair" onclick="sair()">SAIR</button>
+    </div>
+
+    <div id="telaMissoes" class="escondido">
+        <h1>Missões</h1>
+        <p id="missoes">Escolha uma missão para realizar:</p>
+        <button id="missao1" class="botaoMissao" onclick="abrirMissaoFixa(0)">Missão 1</button>
+        <button id="missao2" class="botaoMissao" onclick="abrirMissaoFixa(1)">Missão 2</button>
+        <p id="missaoSorteada"></p>
+        <div id="sortear" class="escondido">
+            <button id="btnSortear" class="sortear" onclick="sortearMissao()">SORTEAR MISSÃO</button>
+        </div>
+
+        <div id="detalheMissao"></div>
+
+        <div id="botoesDecisao" class="escondido">
+            <button class="adicionar" onclick="escolherSorteada('A')">Escolher A</button>
+            <button class="adicionar" onclick="escolherSorteada('B')">Escolher B</button>
+        </div>
+
+        <button class="subtrair" onclick="voltar()">Voltar</button>
+    </div>
+
+    <div id="telaPerdeu" class="escondido">
+        <h1>Fim de Jogo</h1>
+        <p id="resultadoP">Os astronautas não conseguiram completar a missão!</p>
+        <button class="sair" onclick="recomecar()">Reiniciar Jogo</button>
+    </div>
+
+    <div id="telaVenceu" class="escondido">
+        <h1>Você Venceu!</h1>
+        <p id="resultadoV">Parabéns! Você completou a missão!</p>
+        <button class="sair" onclick="recomecar()">Reiniciar Jogo</button>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
 </html>
