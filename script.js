@@ -68,23 +68,23 @@ function missoesFixas() {
         missoesFixasAtuais = [
             {
                 id: "fixa1",
-                titulo: "Calibração do Sistema de Suporte de Vida (ECLSS)",
-                descricao: "O ECLSS (Environmental Control and Life Support System) é o sistema responsável por purificar o ar, reciclar água e manter a pressão e temperatura ideais na cabine da espaçonave.",
-                opcaoATexto: "Reparo Completo (-15 Energia, +5 Saúde)",
+                titulo: "Life Support System Calibration (ECLSS)",
+                descricao: "The ECLSS (Environmental Control and Life Support System) is the system responsible for purifying the air, recycling water, and maintaining ideal cabin pressure and temperature inside the spacecraft.",
+                opcaoATexto: "Full Repair (-15 Energy, +5 Health)",
                 acaoA: { bateriaTotal: -15, saudeTripulacao: 5 },
-                opcaoBTexto: "Modo Econômico (0 Energia, -10 Saúde)",
+                opcaoBTexto: "Economy Mode (0 Energy, -10 Health)",
                 acaoB: { bateriaTotal: 0, saudeTripulacao: -10 },
                 fonte: "NASA – Artemis II Life Support Systems Overview / OSDR (Open Science Data Repository)."
             },
             {
                 id: "fixa2",
-                titulo: "Checagem de Radiação dos Painéis",
-                descricao: " Monitorar os níveis de radiação ionizante no espaço profundo através da dosimetria dos astronautas para evitar danos celulares causados por raios cósmicos.",
-                opcaoATexto: "Ativar Escudo Máximo (-20 Energia, +10 Saúde)",
+                titulo: "Solar Radiation Shield Check",
+                descricao: "Monitor ionizing radiation levels in deep space through astronaut dosimetry to prevent cellular damage caused by cosmic rays.",
+                opcaoATexto: "Activate Maximum Shielding (-20 Energy, +10 Health)",
                 acaoA: { bateriaTotal: -20, saudeTripulacao: 10 },
-                opcaoBTexto: "Apenas Monitorar (0 Energia, +15 Pesquisa)",
+                opcaoBTexto: "Monitor Only (0 Energy, +15 Research)",
                 acaoB: {pesquisaTotal: 15 },
-                fonte: "Space Radiation Analysis Group (SRAG) e dados do OSDR."
+                fonte: "Space Radiation Analysis Group (SRAG) and OSDR data."
             }
         ];
     } 
@@ -92,21 +92,21 @@ function missoesFixas() {
         missoesFixasAtuais = [
             {
                 id: "fixa1",
-                titulo: "Alinhamento da Trajetória de Retorno",
-                descricao: "O traçado gravitacional de retorno livre usa a gravidade da Lua para puxar a cápsula de volta à Terra automaticamente em caso de falha nos motores principais.",
-                opcaoATexto: "Correção Precisa (-10 Energia, +10 Pesquisa)",
+                titulo: "Return Trajectory Alignment",
+                descricao: "The free-return gravitational trajectory uses the Moon's gravity to automatically pull the capsule back toward Earth in the event of a main engine failure.",
+                opcaoATexto: "Precise Correction (-10 Energy, +10 Research)",
                 acaoA: { bateriaTotal: -10, pesquisaTotal: 10 },
-                opcaoBTexto: "Aguardar Próxima Órbita (-5 Oxigênio, -5 Saúde)",
+                opcaoBTexto: "Wait for the Next Orbit (-5 Oxygen, -5 Health)",
                 acaoB: { oxigenTotal: -5, saudeTripulacao: -5 },
                 fonte: "NASA – Artemis II Mission Trajectory Design."
             },
             {
                 id: "fixa2",
-                titulo: "Verificação dos Escudos Térmicos",
-                descricao: "Inspecionar a integridade da proteção térmica da cápsula Orion, essencial para suportar temperaturas extremas ao reentrar na atmosfera terrestre.",
-                opcaoATexto: "Varredura Profunda (-15 Energia, +5 Pesquisa)",
+                titulo: "Heat Shield Inspection",
+                descricao: "Inspect the integrity of the Orion capsule's thermal protection system, which is essential for withstanding extreme temperatures during atmospheric reentry.",
+                opcaoATexto: "Deep Scan (-15 Energy, +5 Research)",
                 acaoA: { bateriaTotal: -15, pesquisaTotal: 5 },
-                opcaoBTexto: "Checagem Visual Rápida (0 Recursos)",
+                opcaoBTexto: "Quick Visual Check (0 Resources)",
                 acaoB: {},
                 fonte: "NASA – Orion Heat Shield Engineering Reports."
             }
@@ -115,21 +115,21 @@ function missoesFixas() {
         missoesFixasAtuais = [
             {
                 id: "fixa1",
-                titulo: "Relatório de Comunicação com o DSN",
-                descricao: "O DSN (Deep Space Network) é a rede internacional de antenas de rádio da NASA que comunica com naves no espaço profundo.",
-                opcaoATexto: "Transmissão Completa (-15 Energia, +10 Pesquisa)",
+                titulo: "DSN Communication Report",
+                descricao: "The DSN (Deep Space Network) is NASA's international network of radio antennas that communicates with spacecraft in deep space.",
+                opcaoATexto: "Full Transmission (-15 Energy, +10 Research)",
                 acaoA: { bateriaTotal: -15, pesquisaTotal: 10 },
-                opcaoBTexto: "Transmissão Básica (-5 Energia, +5 Pesquisa)",
+                opcaoBTexto: "Basic Transmission (-5 Energy, +5 Research)",
                 acaoB: { bateriaTotal: -5, pesquisaTotal: 5 },
                 fonte: "NASA – Deep Space Network (DSN) Mission Operations."
             },
             {
                 id: "fixa2",
-                titulo: "Teste de Redundância das Baterias Principais",
-                descricao: "Checar as células de íon-lítio que fornecem energia de backup para sistemas críticos de navegação e suporte vital.",
-                opcaoATexto: "Recarga Total (-10 Oxigênio, +15 Energia)",
+                titulo: "Main Battery Redundancy Test",
+                descricao: "Check the lithium-ion cells that provide backup power for critical navigation and life support systems.",
+                opcaoATexto: "Full Recharge (-10 Oxygen, +15 Energy)",
                 acaoA: { oxigenTotal: -10, bateriaTotal: 15 },
-                opcaoBTexto: "Usar Carga Parcial (0 Recursos)",
+                opcaoBTexto: "Use Partial Charge (0 Resources)",
                 acaoB: {},
                 fonte: "NASA – Orion Power Systems Specifications."
             }
@@ -138,21 +138,21 @@ function missoesFixas() {
         missoesFixasAtuais = [
             {
                 id: "fixa1",
-                titulo: "Análise de Amostras Biológicas (OSDR)",
-                descricao: "O OSDR (Open Science Data Repository) armazena dados de pesquisas biológicas sobre como o corpo humano e microrganismos reagem à microgravidade.",
-                opcaoATexto: "Estudo Detalhado (-10 Energia, +25 Pesquisa)",
+                titulo: "Biological Sample Analysis (OSDR)",
+                descricao: "The OSDR (Open Science Data Repository) stores biological research data on how the human body and microorganisms react to microgravity.",
+                opcaoATexto: "Detailed Study (-10 Energy, +25 Research)",
                 acaoA: { bateriaTotal: -10, pesquisaTotal: 25 },
-                opcaoBTexto: "Descartar Amostra (0 Energia, 0 Recursos)",
+                opcaoBTexto: "Discard Sample (0 Energy, 0 Resources)",
                 acaoB: {},
                 fonte: "NASA – Open Science Data Repository (OSDR)."
             },
             {
                 id: "fixa2",
-                titulo: "Reciclagem de Água da Cabine",
-                descricao: "Processo de filtragem por osmose reversa e oxidação catalítica que transforma umidade do ar e suor em água potável.",
-                opcaoATexto: "Purificação Avançada (-10 Energia, +10 Saúde)",
+                titulo: "Cabin Water Recycling",
+                descricao: "A reverse osmosis and catalytic oxidation filtration process that turns moisture from the air and sweat into drinking water.",
+                opcaoATexto: "Advanced Purification (-10 Energy, +10 Health)",
                 acaoA: { bateriaTotal: -10, saudeTripulacao: 10 },
-                opcaoBTexto: "Usar Estoque de Reserva (-15 Oxigênio, 0 Energia)",
+                opcaoBTexto: "Use Emergency Reserves (-15 Oxygen, 0 Energy)",
                 acaoB: { oxigenTotal: -15 },
                 fonte: "NASA – Water Recovery System (WRS) Technical Brief."
             }
@@ -161,67 +161,67 @@ function missoesFixas() {
         missoesFixasAtuais = [
             {
                 id: "fixa1",
-                titulo: "Inspeção de Vazamentos no Módulo",
-                descricao: "Monitoramento contínuo da pressão interna para detectar microfissuras causadas por variações térmicas e micrometeoritos.",
-                opcaoATexto: "Selagem Reforçada (-15 Energia, +10 Saúde)",
+                titulo: "Module Leak Inspection",
+                descricao: "Continuous internal pressure monitoring to detect microcracks caused by thermal variations and micrometeorites.",
+                opcaoATexto: "Reinforced Sealing (-15 Energy, +10 Health)",
                 acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
-                opcaoBTexto: "Ignorar Pequeno Alerta (0 Energia, -15 Saúde)",
+                opcaoBTexto: "Ignore Minor Warning (0 Energy, -15 Health)",
                 acaoB: { saudeTripulacao: -15 },
                 fonte: "NASA – Cabin Pressure and Leak Detection Protocols."
             },
             {
                 id: "fixa2",
-                titulo: "Atualização do Software de Navegação",
-                descricao: "Pacotes de código enviados por Houston para otimizar os computadores de bordo e o sistema de orientação autônoma.",
-                opcaoATexto: "Baixar Pacote Completo (-20 Energia, +15 Pesquisa)",
+                titulo: "Navigation Software Update",
+                descricao: "Code packages sent from Houston to optimize the onboard computers and autonomous guidance system.",
+                opcaoATexto: "Download Full Package (-20 Energy, +15 Research)",
                 acaoA: { bateriaTotal: -20, pesquisaTotal: 15 },
-                opcaoBTexto: "Apenas Correção de Bugs (-5 Energia, +5 Pesquisa)",
+                opcaoBTexto: "Bug Fixes Only (-5 Energy, +5 Research)",
                 acaoB: { bateriaTotal: -5, pesquisaTotal: 5 },
                 fonte: "NASA – Flight Software Engineering Standards."
             }
         ];
     } else if (dia === 6) {
         missoesFixasAtuais = [
-        {
-            id: "fixa1",
-            titulo: "Varredura de Micrometeoritos",
-            descricao: "Uso de radar de curto alcance para detectar detritos espaciais e poeira em alta velocidade na rota da nave.",
-            opcaoATexto: "Manobra Evasiva (-15 Energia, +10 Saúde)",
-            acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
-            opcaoBTexto: "Manter Rumo (0 Energia, -10 Saúde)",
-            acaoB: { saudeTripulacao: -10 },
-            fonte: "NASA – Orbital Debris Program Office."
-        },
-        {
-            id: "fixa2",
-            titulo: "Teste de Ignição dos Propulsores RCS",
-            descricao: "O RCS (Reaction Control System) utiliza pequenos jatos de manobra para orientar e estabilizar a cápsula no vácuo.",
-            opcaoATexto: "Teste Completo (-20 Energia, +10 Pesquisa)",
-            acaoA: { bateriaTotal: -20, pesquisaTotal: 10 },
-            opcaoBTexto: "Teste Parcial (-5 Energia, 0 Recursos)",
-            acaoB: { bateriaTotal: -5 },
-            fonte: "NASA – Orion Reaction Control System Manual."
-        }
-    ];
+            {
+                id: "fixa1",
+                titulo: "Micrometeorite Scan",
+                descricao: "Use short-range radar to detect space debris and high-speed dust along the spacecraft's route.",
+                opcaoATexto: "Evasive Maneuver (-15 Energy, +10 Health)",
+                acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
+                opcaoBTexto: "Maintain Course (0 Energy, -10 Health)",
+                acaoB: { saudeTripulacao: -10 },
+                fonte: "NASA – Orbital Debris Program Office."
+            },
+            {
+                id: "fixa2",
+                titulo: "RCS Thruster Ignition Test",
+                descricao: "The RCS (Reaction Control System) uses small maneuvering thrusters to orient and stabilize the capsule in the vacuum of space.",
+                opcaoATexto: "Full Test (-20 Energy, +10 Research)",
+                acaoA: { bateriaTotal: -20, pesquisaTotal: 10 },
+                opcaoBTexto: "Partial Test (-5 Energy, 0 Resources)",
+                acaoB: { bateriaTotal: -5 },
+                fonte: "NASA – Orion Reaction Control System Manual."
+            }
+        ];
     } else if (dia === 7) {
         missoesFixasAtuais = [
             {
                 id: "fixa1",
-                titulo: "Relatório de Estresse Psicológico",
-                descricao: "Acompanhamento comportamental e psicológico da equipe isolada no espaço profundo por dias seguidos.",
-                opcaoATexto: "Sessão de Descanso da Tripulação (-10 Oxigênio, +20 Saúde)",
+                titulo: "Psychological Stress Report",
+                descricao: "Behavioral and psychological monitoring of the crew, who have been isolated in deep space for several consecutive days.",
+                opcaoATexto: "Crew Rest Session (-10 Oxygen, +20 Health)",
                 acaoA: { oxigenTotal: -10, saudeTripulacao: 20 },
-                opcaoBTexto: "Manter Foco no Trabalho (0 Oxigênio, +10 Pesquisa)",
+                opcaoBTexto: "Stay Focused on Work (0 Oxygen, +10 Research)",
                 acaoB: { pesquisaTotal: 10 },
                 fonte: "NASA – Behavioral Health and Performance (BHP) Guidelines."
             },
             {
                 id: "fixa2",
-                titulo: "Sincronização do Relógio Atômico",
-                descricao: "Uso de relógios de precisão extrema baseados em transições atômicas para calcular efemérides e trajetórias no espaço.",
-                opcaoATexto: "Calibração Fina (-10 Energia, +5 Pesquisa)",
+                titulo: "Atomic Clock Synchronization",
+                descricao: "Use extremely precise clocks based on atomic transitions to calculate ephemerides and trajectories in space.",
+                opcaoATexto: "Fine Calibration (-10 Energy, +5 Research)",
                 acaoA: { bateriaTotal: -10, pesquisaTotal: 5 },
-                opcaoBTexto: "Usar Hora Padrão (0 Energia, 0 Recursos)",
+                opcaoBTexto: "Use Standard Time (0 Energy, 0 Resources)",
                 acaoB: {},
                 fonte: "NASA – Deep Space Atomic Clock (DSAC) Project."
             }
@@ -230,21 +230,21 @@ function missoesFixas() {
         missoesFixasAtuais = [
             {
                 id: "fixa1",
-                titulo: "Manutenção das Válvulas de Alívio",
-                descricao: "Válvulas mecânicas de segurança que impedem o acúmulo excessivo de pressão interna na escotilha e tanques.",
-                opcaoATexto: "Limpeza Completa (-15 Energia, +10 Saúde)",
+                titulo: "Pressure Relief Valve Maintenance",
+                descricao: "Mechanical safety valves that prevent excessive internal pressure from building up in the hatch and tanks.",
+                opcaoATexto: "Complete Cleaning (-15 Energy, +10 Health)",
                 acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
-                opcaoBTexto: "Adiar Manutenção (0 Energia, -5 Saúde)",
+                opcaoBTexto: "Postpone Maintenance (0 Energy, -5 Health)",
                 acaoB: { saudeTripulacao: -5 },
                 fonte: "NASA – Pressure Relief Mechanisms Engineering."
             },
             {
                 id: "fixa2",
-                titulo: "Verificação Térmica dos Computadores",
-                descricao: "Gerenciamento do calor gerado pelos processadores centrais da nave através de malhas de refrigeração líquida.",
-                opcaoATexto: "Reiniciar com Refrigeração (-10 Energia, +5 Pesquisa)",
+                titulo: "Computer Thermal Check",
+                descricao: "Management of the heat generated by the spacecraft's central processors through liquid cooling loops.",
+                opcaoATexto: "Restart with Cooling (-10 Energy, +5 Research)",
                 acaoA: { bateriaTotal: -10, pesquisaTotal: 5 },
-                opcaoBTexto: "Continuar Aquecido (0 Energia, 0 Recursos)",
+                opcaoBTexto: "Keep Running Hot (0 Energy, 0 Resources)",
                 acaoB: {},
                 fonte: "NASA – Avionics Thermal Control System."
             }
@@ -253,21 +253,21 @@ function missoesFixas() {
         missoesFixasAtuais = [
             {
                 id: "fixa1",
-                titulo: "Teste de Luzes de Emergência",
-                descricao: "Verificação dos circuitos de iluminação secundária alimentados por barramentos elétricos isolados.",
-                opcaoATexto: "Substituir Lâmpadas (-5 Energia, +5 Saúde)",
+                titulo: "Emergency Lighting Test",
+                descricao: "Check the secondary lighting circuits powered by isolated electrical buses.",
+                opcaoATexto: "Replace Bulbs (-5 Energy, +5 Health)",
                 acaoA: { bateriaTotal: -5, saudeTripulacao: 5 },
-                opcaoBTexto: "Economizar Bateria (0 Energia, 0 Recursos)",
+                opcaoBTexto: "Save Battery Power (0 Energy, 0 Resources)",
                 acaoB: {},
                 fonte: "NASA – Emergency Lighting Systems Specification."
             },
             {
                 id: "fixa2",
-                titulo: "Monitoramento do Hidrogênio Líquido",
-                descricao: "Controle criogênico do combustível armazenado em temperaturas próximas ao zero absoluto.",
-                opcaoATexto: "Esvaziar Bolsões de Gás (-15 Energia, +10 Saúde)",
+                titulo: "Liquid Hydrogen Monitoring",
+                descricao: "Cryogenic control of fuel stored at temperatures close to absolute zero.",
+                opcaoATexto: "Release Gas Pockets (-15 Energy, +10 Health)",
                 acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
-                opcaoBTexto: "Deixar Como Está (-10 Energia)",
+                opcaoBTexto: "Leave It As It Is (-10 Energy)",
                 acaoB: { bateriaTotal: -10 },
                 fonte: "NASA – Cryogenic Propellant Storage Management."
             }
@@ -276,21 +276,21 @@ function missoesFixas() {
         missoesFixasAtuais = [
             {
                 id: "fixa1",
-                titulo: "Calibração das Câmeras Externas",
-                descricao: "Ajuste de lentes ópticas de alta resolução usadas para registrar a geologia lunar e dados visuais da missão.",
-                opcaoATexto: "Capturar Fotos em Alta Resolução (-10 Energia, +20 Pesquisa)",
+                titulo: "External Camera Calibration",
+                descricao: "Adjustment of high-resolution optical lenses used to record lunar geology and visual mission data.",
+                opcaoATexto: "Capture High-Resolution Photos (-10 Energy, +20 Research)",
                 acaoA: { bateriaTotal: -10, pesquisaTotal: 20 },
-                opcaoBTexto: "Modo Econômico (-5 Energia, +5 Pesquisa)",
+                opcaoBTexto: "Economy Mode (-5 Energy, +5 Research)",
                 acaoB: { bateriaTotal: -5, pesquisaTotal: 5 },
                 fonte: "NASA – Artemis Optical Navigation and Imagery."
             },
             {
                 id: "fixa2",
-                titulo: "Auditoria de Rations (Alimentação)",
-                descricao: "Controle calórico e nutricional dos pacotes de comida desidratada liofilizada da tripulação.",
-                opcaoATexto: "Ração Completa e Nutritiva (-10 Oxigênio, +15 Saúde)",
+                titulo: "Ration Audit (Food Supply)",
+                descricao: "Calorie and nutritional monitoring of the crew's freeze-dried food packages.",
+                opcaoATexto: "Full Nutritious Ration (-10 Oxygen, +15 Health)",
                 acaoA: { oxigenTotal: -10, saudeTripulacao: 15 },
-                opcaoBTexto: "Racionar Comida (0 Oxigênio, -10 Saúde)",
+                opcaoBTexto: " ration Food (0 Oxygen, -10 Health)",
                 acaoB: { saudeTripulacao: -10 },
                 fonte: "NASA – Space Food Systems Laboratory Guidelines."
             }
@@ -347,114 +347,113 @@ function sortearMissao() {
 
     let missoesA = [
         {
-            titulo: "Alerta de Ejeção de Massa Coronal (CME - DONKI)",
-            descricao: "O DONKI (Space Weather Database Of Not<strong>ifications, Knowledge, Information) monitora tempestades solares e emissões de plasma do Sol que geram radiação perigosa.",
-            opcaoATexto: "Blindagem Total <strong>(-25 Energia, +15 Saúde)</strong>",
+            titulo: "Coronal Mass Ejection Alert (CME - DONKI)",
+            descricao: "DONKI (Space Weather Database Of Notifications, Knowledge, Information) monitors solar storms and plasma emissions from the Sun that generate dangerous radiation.",
+            opcaoATexto: "Full Shielding <strong>(-25 Energy, +15 Health)</strong>",
             acaoA: { bateriaTotal: -25, saudeTripulacao: 15, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "Apostar na Sorte <strong>(0 Energia, -30 Saúde)</strong>",
+            opcaoBTexto: "Take a Chance <strong>(0 Energy, -30 Health)</strong>",
             acaoB: { bateriaTotal: 0, saudeTripulacao: -30, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – DONKI"
         },
         {
-            titulo: "Queda de Energia na Sombra Lunar",
-            descricao: "Momento em que a Lua bloqueia a luz solar direta, reduzindo drasticamente a captação dos painéis fotovoltaicos.",
-            opcaoATexto: "Ligar Gerador Auxiliar <strong>(-20 Oxigênio, +15 Energia)</strong>",
+            titulo: "Power Loss in the Lunar Shadow",
+            descricao: "A period when the Moon blocks direct sunlight, drastically reducing the energy collected by the photovoltaic panels.",
+            opcaoATexto: "Activate Auxiliary Generator <strong>(-20 Oxygen, +15 Energy)</strong>",
             acaoA: { bateriaTotal: 15, saudeTripulacao: 0, oxigenTotal: -20, pesquisaTotal: 0 },
-            opcaoBTexto: "Economizar ao Máximo <strong>(0 Energia, -15 Saúde)</strong>",
+            opcaoBTexto: "Maximum Energy Conservation <strong>(0 Energy, -15 Health)</strong>",
             acaoB: { bateriaTotal: 0, saudeTripulacao: -15, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – Lunar Orbital Mechanics"
         },
         {
-            titulo: "Flutuação de Pressão no Traje EVA",
-            descricao: "Uma EVA (Extravehicular Activity) é qualquer atividade fora da nave; falhas de pressão no traje colocam o astronauta em risco de hipóxia.",
-            opcaoATexto: "Reparo de Emergência (-15 Energia, +10 Saúde)",
+            titulo: "EVA Suit Pressure Fluctuation",
+            descricao: "An EVA (Extravehicular Activity) is any activity performed outside the spacecraft; pressure failures in the suit put the astronaut at risk of hypoxia.",
+            opcaoATexto: "Emergency Repair (-15 Energy, +10 Health)",
             acaoA: { bateriaTotal: -15, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "Ajustar Válvula Manual (-5 Oxigênio, -10 Saúde)",
+            opcaoBTexto: "Manually Adjust Valve (-5 Oxygen, -10 Health)",
             acaoB: { bateriaTotal: 0, saudeTripulacao: -10, oxigenTotal: -5, pesquisaTotal: 0 },
             fonte: "NASA – Extravehicular Mobility Unit (EMU) Safety Protocols."
         },
         {
-            titulo: "Impacto de Micrometeorito Menor",
-            descricao: "Pequeno fragmento rochoso espacial que colide em hipervelocidade com a estrutura da espaçonave.",
-            opcaoATexto: "Selar com Resina (-10 Energia, +5 Saúde)",
+            titulo: "Minor Micrometeorite Impact",
+            descricao: "A small rocky fragment from space colliding with the spacecraft's structure at extremely high speed.",
+            opcaoATexto: "Seal with Resin (-10 Energy, +5 Health)",
             acaoA: { bateriaTotal: -10, saudeTripulacao: 5, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "Deixar Vazamento Mínimo (-15 Oxigênio, 0 Energia)",
+            opcaoBTexto: "Leave a Minor Leak (-15 Oxygen, 0 Energy)",
             acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -15, pesquisaTotal: 0 },
             fonte: "NASA – Hypervelocity Impact Technology (HVIT)."
         },
         {
-            titulo: "Alarme Falso de Incêndio",
-            descricao: "Disparo acidental de sensores ópticos de fumaça devido a partículas de poeira em suspensão na gravidade zero.",
-            opcaoATexto: "Ventilação Forçada de Emergência (-15 Oxigênio, +5 Saúde)",
+            titulo: "False Fire Alarm",
+            descricao: "Accidental activation of optical smoke sensors due to dust particles suspended in zero gravity.",
+            opcaoATexto: "Emergency Forced Ventilation (-15 Oxygen, +5 Health)",
             acaoA: { bateriaTotal: 0, saudeTripulacao: 5, oxigenTotal: -15, pesquisaTotal: 0 },
-            opcaoBTexto: "Desligar Alarme (0 Recursos)",
+            opcaoBTexto: "Disable Alarm (0 Resources)",
             acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – Spacecraft Fire Safety Demonstration (Saffire)."
         },
         {
-            titulo: "Oportunidade de Dados Cósmicos (GCR)",
-            descricao: "Os GCRs (Galactic Cosmic Rays) são partículas de alta energia vindas de fora do Sistema Solar que bombardeiam o espaço profundo.",
-            opcaoATexto: "Coletar Dados Intensos (-20 Energia, +35 Pesquisa)",
+            titulo: "Cosmic Data Opportunity (GCR)",
+            descricao: "GCRs (Galactic Cosmic Rays) are high-energy particles originating from outside the Solar System that bombard deep space.",
+            opcaoATexto: "Collect Extensive Data (-20 Energy, +35 Research)",
             acaoA: { bateriaTotal: -20, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 35 },
-            opcaoBTexto: "Recusar para Proteger a Tripulação (0 Energia, +10 Saúde)",
+            opcaoBTexto: "Decline to Protect the Crew (0 Energy, +10 Health)",
             acaoB: { bateriaTotal: 0, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – Galactic Cosmic Ray Measurements and Shielding."
         },
         {
-            titulo: "Falha no Link de Vídeo com Houston",
-            descricao: "Perda temporária da banda larga de comunicação por satélite, exigindo o uso de frequências alternativas de texto.",
-            opcaoATexto: "Reiniciar Antena Principal (-15 Energia, +10 Pesquisa)",
+            titulo: "Video Link Failure with Houston",
+            descricao: "Temporary loss of satellite broadband communication, requiring the use of alternative text-based frequencies.",
+            opcaoATexto: "Restart Main Antenna (-15 Energy, +10 Research)",
             acaoA: { bateriaTotal: -15, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
-            opcaoBTexto: "Usar Canal de Texto (-5 Energia, 0 Recursos)",
+            opcaoBTexto: "Use Text Channel (-5 Energy, 0 Resources)",
             acaoB: { bateriaTotal: -5, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – Spacecraft Communications and Navigation (SCaN)."
         },
         {
-            titulo: "Superaquecimento no Módulo X-Band",
-            descricao: "A Banda X (X-Band) é uma faixa de radiofrequência usada para transmitir grandes volumes de dados científicos para a Terra, gerando muito calor.",
-            opcaoATexto: "Desligar Sistemas Secundários (-10 Energia, +5 Pesquisa)",
+            titulo: "Overheating in the X-Band Module",
+            descricao: "The X-Band is a radio frequency range used to transmit large volumes of scientific data to Earth, generating significant heat.",
+            opcaoATexto: "Shut Down Secondary Systems (-10 Energy, +5 Research)",
             acaoA: { bateriaTotal: -10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 5 },
-            opcaoBTexto: "Forçar Resfriamento Criogênico (-20 Energia, +10 Saúde)",
+            opcaoBTexto: "Force Cryogenic Cooling (-20 Energy, +10 Health)",
             acaoB: { bateriaTotal: -20, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – Deep Space Communications Radio Systems."
         },
         {
-            titulo: "Desvio de Rota Gravitacional",
-            descricao: "Alteração sutil na trajetória causada por anomalias gravitacionais locais ao passar perto de corpos celestes.",
-            opcaoATexto: "Queima de Propulsor Extra (-30 Energia, +15 Pesquisa)",
+            titulo: "Gravitational Course Deviation",
+            descricao: "A subtle trajectory change caused by local gravitational anomalies when passing near celestial bodies.",
+            opcaoATexto: "Extra Propulsion Burn (-30 Energy, +15 Research)",
             acaoA: { bateriaTotal: -30, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 15 },
-            opcaoBTexto: "Ajuste Lento com Inércia (-10 Oxigênio, 0 Energia)",
+            opcaoBTexto: "Slow Adjustment Using Inertia (-10 Oxygen, 0 Energy)",
             acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -10, pesquisaTotal: 0 },
             fonte: "NASA – Orbital Mechanics and Perturbation Analysis."
         },
         {
-            titulo: "Congelamento na Linha de Resíduos",
-            descricao: "Bloqueio de dutos de descarte devido à diferença extrema de temperatura entre o lado exposto ao sol e o lado na sombra.",
-            opcaoATexto: "Aquecimento Elétrico (-15 Energia, +5 Saúde)",
+            titulo: "Waste Line Freezing",
+            descricao: "Blockage of disposal pipes due to the extreme temperature difference between the side exposed to sunlight and the side in shadow.",
+            opcaoATexto: "Electric Heating (-15 Energy, +5 Health)",
             acaoA: { bateriaTotal: -15, saudeTripulacao: 5, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "Descongelamento Manual (-5 Oxigênio, 0 Energia)",
+            opcaoBTexto: "Manual Thawing (-5 Oxygen, 0 Energy)",
             acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -5, pesquisaTotal: 0 },
             fonte: "NASA – Environmental Control Thermal Analysis."
         },
         {
-            titulo: "Pico de Eficiência Solar Surpresa!",
-            descricao: "Flutuação nos ventos solares que aumenta temporariamente a energia gerada pelos painéis fotovoltaicos da Orion.",
-            opcaoATexto: "Armazenar Baterias (+25 Energia, 0 Desgaste)",
+            titulo: "Surprise Solar Efficiency Boost!",
+            descricao: "Fluctuations in solar winds temporarily increase the energy generated by the Orion's photovoltaic panels.",
+            opcaoATexto: "Store Energy in Batteries (+25 Energy, 0 Wear)",
             acaoA: { bateriaTotal: 25, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "Direcionar para Pesquisa (+15 Energia, +20 Pesquisa)",
+            opcaoBTexto: "Redirect Energy to Research (+15 Energy, +20 Research)",
             acaoB: { bateriaTotal: 15, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 20 },
             fonte: "NASA – Solar Array Performance Reports."
         },
         {
-            titulo: "Alerta de Ruído Estrutural na Popa",
-            descricao: "Sons metálicos causados pela expansão e contração térmica rápida dos materiais da estrutura da nave.",
-            opcaoATexto: "Inspeção por Câmera Robótica (-10 Energia, +10 Pesquisa)",
+            titulo: "Structural Noise Alert in the Stern",
+            descricao: "Metallic sounds caused by the rapid thermal expansion and contraction of the spacecraft's structural materials.",
+            opcaoATexto: "Robotic Camera Inspection (-10 Energy, +10 Research)",
             acaoA: { bateriaTotal: -10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
-            opcaoBTexto: "Ignorar Ruído Térmico (0 Recursos, -10 Saúde)",
+            opcaoBTexto: "Ignore Thermal Noise (0 Resources, -10 Health)",
             acaoB: { bateriaTotal: 0, saudeTripulacao: -10, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – Spacecraft Structural Dynamics and Acoustics."
         }
-
     ];
 
     let indice = Math.floor(Math.random() * missoesA.length);
