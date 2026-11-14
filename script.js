@@ -523,10 +523,7 @@ function resetarMissoes() {
 
 //botão para saída do jogo e retorno a tela inicial de menu
 function sair() {
-    let confirmar = prompt("Really quit game? (All progress will be lost) yes|no")
-    if (confirmar.toLowerCase() === "yes" || confirmar.toLowerCase() === "y") {
         recomecar()
-    }
 }
 
 //quando o jogador perder e escolher recomaças o jogo, reincia as variáveis e missões
