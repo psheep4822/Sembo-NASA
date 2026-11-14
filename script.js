@@ -36,7 +36,7 @@ function atualizarPainel() {
     document.getElementById("saudeTripulacao").innerHTML = "Crew Health: " + saudeTripulacao
     document.getElementById("bateriaNave").innerHTML = "Spaceship Energy: " + bateriaTotal
     document.getElementById("oxigenNave").innerHTML = "Spaceship Oxygen: " + oxigenTotal
-    document.getElementById("diasPassados").innerHTML = "Past Days: " + dia
+    document.getElementById("diasPassados").innerHTML = "Current Day: " + dia
 
     atualizarCenario();
 }
