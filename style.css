@@ -148,9 +148,26 @@ button:hover {
     z-index: 99999999;
 }
 
+#bloco {
+    cursor: pointer;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 100px;
+    height: auto;
+    margin: 10;
+    padding: 0;
+    z-index: 99999999;
+}
+
 @media (max-width: 600px) {
     #marcaDagua {
         width: 10rem;
         height: auto
+    }
+
+    #bloco {
+        width: 5rem;
+        height: auto;
     }
 }
