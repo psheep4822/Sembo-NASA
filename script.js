@@ -32,11 +32,11 @@ function atualizarCenario() {
 
 // atualiza as informações/variáveis no "painel" diariamente
 function atualizarPainel() {
-    document.getElementById("pesquisaNave").innerHTML = "Pesquisa da Nave: " + pesquisaTotal
-    document.getElementById("saudeTripulacao").innerHTML = "Saúde da Tripulação: " + saudeTripulacao
-    document.getElementById("bateriaNave").innerHTML = "Energia da Nave: " + bateriaTotal
-    document.getElementById("oxigenNave").innerHTML = "Oxigênio da Nave: " + oxigenTotal
-    document.getElementById("diasPassados").innerHTML = "Dias Passados: " + dia
+    document.getElementById("pesquisaNave").innerHTML = "Research Points: " + pesquisaTotal
+    document.getElementById("saudeTripulacao").innerHTML = "Crew Health: " + saudeTripulacao
+    document.getElementById("bateriaNave").innerHTML = "Spaceship Energy: " + bateriaTotal
+    document.getElementById("oxigenNave").innerHTML = "Spaceship Oxygen: " + oxigenTotal
+    document.getElementById("diasPassados").innerHTML = "Past Days: " + dia
 
     atualizarCenario();
 }
@@ -313,7 +313,7 @@ function abrirMissaoFixa(index) {
         <p>${missaoSelecionada.descricao}</p>
         <button class="botaoMissao" onclick="escolherOpcaoFixa('A')">${missaoSelecionada.opcaoATexto}</button>
         <button class="botaoMissao" onclick="escolherOpcaoFixa('B')">${missaoSelecionada.opcaoBTexto}</button>
-        <small>Fonte: ${missaoSelecionada.fonte}</small>
+        <small>Font: ${missaoSelecionada.fonte}</small>
     `;
 }
 
@@ -334,11 +334,9 @@ function escolherOpcaoFixa(opcao) {
     missaoSelecionada = null;
     indiceFixaAtual = null;
 
-    document.getElementById("detalheMissao").innerHTML = "Missão realizada!";
+    document.getElementById("detalheMissao").innerHTML = "Mission Done!";
     atualizarBotoesMissoes();
     verificarDia();
-
-    alert("Missão concluída com sucesso!");
 }
 
 // missão sorteada/aleatória que o jogador tem que cumprir 1 por dia
@@ -460,10 +458,10 @@ function sortearMissao() {
     missaoAtual = missoesA[indice];
     let textoHTML = `
         <strong>${missaoAtual.titulo}</strong><br>
-        <em>O que é:</em> ${missaoAtual.descricao}<br><br>
+        <em>What it is:</em> ${missaoAtual.descricao}<br><br>
         <strong>[A]</strong> ${missaoAtual.opcaoATexto}<br>
         <strong>[B]</strong> ${missaoAtual.opcaoBTexto}<br>
-        <small>Fonte: ${missaoAtual.fonte}</small>
+        <small>Font: ${missaoAtual.fonte}</small>
     `;
     document.getElementById("missaoSorteada").innerHTML = textoHTML;
     document.getElementById("botoesDecisao").classList.remove("escondido");
@@ -487,12 +485,10 @@ function sortearMissao() {
         atualizarPainel();
 
         sorteadaFeita = true;
-        document.getElementById("missaoSorteada").innerHTML = "Missão concluída com sucesso!";
+        document.getElementById("missaoSorteada").innerHTML = "Mission Accomplished Successfully!";
         document.getElementById("botoesDecisao").classList.add("escondido");
         atualizarBotoesMissoes();
         verificarDia();
-
-        alert("Você escolheu a Opção " + opcaoEscolhida + "!");
     }
 
 // faz os botoes das missões serem atualizados (sumirem e aparecerem)
@@ -527,8 +523,8 @@ function resetarMissoes() {
 
 //botão para saída do jogo e retorno a tela inicial de menu
 function sair() {
-    let confirmar = prompt("Deseja sair do jogo? (Caso decida sair o seu progresso será perdido!) sim|não")
-    if (confirmar === "sim") {
+    let confirmar = prompt("Really quit game? (All progress will be lost) y|n")
+    if (confirmar === "y") {
         recomecar()
     }
 }
@@ -563,18 +559,25 @@ function passagemDias() {
         verificar()
         atualizarPainel()
     } else {
-        alert("A nave não tem energia ou oxigênio suficiente para passar o dia!")
+        if (bateriaTotal = 0) {
+            alert("The spaceship doesn't have enough energy to pass the day")
+        } else if (oxigenTotal = 0) {
+            alert("The spaceship ran out of oxygen")
+        } else {
+            alert("The crew is all sick!")
+        }
         document.getElementById("telaJogo").classList.add("escondido");
         document.getElementById("telaMissoes").classList.add("escondido");
         document.getElementById("telaPerdeu").classList.remove("escondido");
+        return;
     }
-     if (dia > 10 && pesquisaTotal <= 45) {
-        alert("Você completou os 10 dias de missão, porém fez poucas pesquisas! Pesquisas são fundamentais e o ponto principal de uma expedição como essa, atente-se da próxima vez!")
-        document.getElementById("telaJogo").classList.add("escondido");
-        document.getElementById("telaMissoes").classList.add("escondido");
-        document.getElementById("telaVenceu").classList.remove("escondido");
-    } else if (dia > 10) {
-        alert("Você completou os 10 dias de missão! Parabéns!")
+    
+    if (dia > 10) {
+        if (pesquisaTotal <= 45) {
+            alert("You survived the 10 days, but you've done too little researches. Researches are the primary focus of a mission like this, so research more on next.")
+        } else {
+            alert("Congratulations! You survived the 10 days and did a lot of research!")
+        }
         document.getElementById("telaJogo").classList.add("escondido");
         document.getElementById("telaMissoes").classList.add("escondido");
         document.getElementById("telaVenceu").classList.remove("escondido");
