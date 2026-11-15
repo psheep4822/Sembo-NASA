@@ -13,7 +13,7 @@
 
     <div id="telaMenu" class="tela-menu">
         <img src="marcaDaguaB.png" alt="Sembo Logo" id="marcaDagua">
-        <h1 class="faixaFundo">ASTRAEA MISSION</h1>
+        <h1 id="mainTitle">ASTRAEA MISSION</h1>
         <div class="fullwidth">
             <a href="presentationSembo.html">
                 <img src="botoes/aboutUs.png" id="aboutUsButton" class="imgButton">
@@ -69,14 +69,18 @@
         <img src="marcaDaguaP.png" alt="Sembo Logo" id="marcaDagua">
         <h1>GAME OVER!</h1>
         <p id="resultadoP">THE ASTRONAUTS COULDN'T COMPLETE THE MISSIONS!</p>
-        <img src="playAgain.png" class="imgButton" onclick="recomeçar()">
+        <div class="fullwidth">
+            <img src="botoes/playAgain.png" class="imgButton" onclick="recomecar()">
+        </div>
     </div>
 
     <div id="telaVenceu" class="escondido">
         <img src="marcaDaguaP.png" alt="Sembo Logo" id="marcaDagua">
         <h1>YOU WON!</h1>
         <p id="resultadoV">CONGRATULATIONS! YOU SURVIVED THE 10 DAYS!</p>
-        <img src="playAgain.png" class="imgButton" onclick="recomeçar()">
+        <div class="fullwidth">
+            <img src="botoes/playAgain.png" class="imgButton" onclick="recomecar()">
+        </div>
     </div>
 
     <script src="script.js"></script>

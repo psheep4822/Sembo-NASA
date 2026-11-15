@@ -535,7 +535,7 @@ function recomecar() {
     pesquisaTotal = 0;
     saudeTripulacao = 100;
 
-    resetarMissoes ();
+    resetarMissoes();
     atualizarPainel();
 
     document.getElementById("telaPerdeu").classList.add("escondido");

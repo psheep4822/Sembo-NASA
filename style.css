@@ -130,13 +130,6 @@ button:hover {
     background-image: url('cenarios/fundoMissoes.png');
 }
 
-.faixaFundo {
-    background-color: rgba(0, 0, 0, 0.45);
-    border-radius: 8px;
-    margin: 12px 0;
-    line-height: 1.5;
-}
-
 #marcaDagua {
     position: fixed;
     top: 0px;
@@ -241,4 +234,13 @@ button:hover {
 
 .pGame {
   text-align: center;
+}
+
+#mainTitle {
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 8px;
+    padding: 2px;
+    margin: 12px 0;
+    line-height: 1.5;
+    font-size: 5rem;
 }
