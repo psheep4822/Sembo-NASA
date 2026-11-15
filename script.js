@@ -771,7 +771,7 @@ function atualizarMinigame(dt) {
 function atualizarHudMinigame(jx) {
     let passadas = mg.caixas.filter(c => c.x + c.w < jx).length;
     document.getElementById("minigameInfo").innerHTML =
-        "Hits: " + mg.batidas + "/" + MG.maxBatidas + " | Boxes: " + passadas + "/" + MG.totalCaixas;
+        "Lives: " + (MG.maxBatidas - mg.batidas) + " | Boxes: " + passadas + "/" + MG.totalCaixas;
 }
 
 function terminarMinigame(passou) {
