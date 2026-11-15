@@ -811,45 +811,10 @@ function desenharMinigame() {
     const ctx = canvas.getContext("2d");
     const cam = mg.camera;
 
-    // fundo da nave
-    ctx.fillStyle = "#1b2333";
+    // fundo (cobre o canvas inteiro e rola junto com as caixas)
+    ctx.fillStyle = "#1b2333";                         // cor de segurança enquanto a imagem carrega
     ctx.fillRect(0, 0, MG.W, MG.H);
-    desenharCamada(ctx, imgFundo, 0, MG.chao, 0.4);
-
-    // janelas com a Lua (parallax lento)
-    for (let i = -1; i < 6; i++) {
-        let x = i * 220 - (cam * 0.25) % 220;
-        ctx.fillStyle = "#0a0f1c";
-        ctx.fillRect(x + 40, 40, 110, 80);
-        ctx.fillStyle = "#cfd3da";                // superfície lunar
-        ctx.fillRect(x + 40, 100, 110, 20);
-        ctx.fillStyle = "#fff";                   // estrelas
-        ctx.fillRect(x + 60, 60, 2, 2);
-        ctx.fillRect(x + 110, 75, 2, 2);
-        ctx.strokeStyle = "#5b6b8a";
-        ctx.lineWidth = 4;
-        ctx.strokeRect(x + 40, 40, 110, 80);
-    }
-
-    // painéis da parede (parallax médio)
-    ctx.strokeStyle = "#2c3a55";
-    ctx.lineWidth = 2;
-    for (let i = -1; i < 12; i++) {
-        let x = i * 110 - (cam * 0.6) % 110;
-        ctx.strokeRect(x, 150, 110, 100);
-    }
-
-    // chão (rolagem total)
-    ctx.fillStyle = "#59647c";
-    ctx.fillRect(0, MG.chao, MG.W, MG.H - MG.chao);
-    ctx.strokeStyle = "#3a445a";
-    for (let i = -1; i < 20; i++) {
-        let x = i * 60 - cam % 60;
-        ctx.beginPath();
-        ctx.moveTo(x, MG.chao);
-        ctx.lineTo(x - 20, MG.H);
-        ctx.stroke();
-    }
+    desenharCamada(ctx, imgFundo, 0, MG.H, 1);
 
     // linha de chegada (xadrez)
     let fx = mg.chegadaX - cam;
@@ -873,23 +838,24 @@ function desenharMinigame() {
         ctx.lineWidth = 3;
         ctx.strokeRect(x, y, c.w, c.h);
         ctx.beginPath();
-        ctx.moveTo(x, y); ctx.lineTo(x + c.w, y + c.h);
-        ctx.moveTo(x + c.w, y); ctx.lineTo(x, y + c.h);
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + c.w, y + c.h);
+        ctx.moveTo(x + c.w, y);
+        ctx.lineTo(x, y + c.h);
         ctx.stroke();
     }
 
     // astronauta (pisca quando está invulnerável)
-let j = mg.jogador;
-if (mg.invulneravel <= 0 || Math.floor(mg.invulneravel * 10) % 2 === 0) {
-    if (imgAstronauta.complete && imgAstronauta.naturalWidth > 0) {
-        ctx.drawImage(imgAstronauta, j.x, j.y, j.w, j.h);
-    } else {
-        ctx.fillStyle = "#f2f2f2";                    // reserva se a imagem não carregar
-        ctx.fillRect(j.x, j.y, j.w, j.h);
+    let j = mg.jogador;
+    if (mg.invulneravel <= 0 || Math.floor(mg.invulneravel * 10) % 2 === 0) {
+        if (imgAstronauta.complete && imgAstronauta.naturalWidth > 0) {
+            ctx.drawImage(imgAstronauta, j.x, j.y, j.w, j.h);
+        } else {
+            ctx.fillStyle = "#f2f2f2";                 // reserva se a imagem não carregar
+            ctx.fillRect(j.x, j.y, j.w, j.h);
+        }
     }
 }
-}
-
 // ---------- controles ----------
 document.addEventListener("keydown", function (e) {
     if (e.code === "Space" || e.code === "ArrowUp") {
