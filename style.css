@@ -267,3 +267,15 @@ button:hover {
     width: 100%;
     min-height: 100vh;
 }
+
+#telaMinigame { text-align: center; padding: 10px; }
+
+#minigameCanvas {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    touch-action: none;   /* evita scroll/zoom ao tocar no celular */
+    background: #000;
+}

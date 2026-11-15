@@ -9,6 +9,8 @@ let missoesFixasAtuais = [];
 let fixasFeitas = [false, false];
 let sorteadaFeita = false;
 let indiceFixaAtual = null;
+let acaoPendente = null;
+let origemPendente = null; 
 
 // altera os cenários a cada dia que passa
 const cenarios = [
@@ -322,29 +324,14 @@ function abrirMissaoFixa(index) {
 function escolherOpcaoFixa(opcao) {
     if (!missaoSelecionada) return;
     let acoes = (opcao === 'A') ? missaoSelecionada.acaoA : missaoSelecionada.acaoB;
-
-    if (acoes.bateriaTotal) bateriaTotal += acoes.bateriaTotal;
-    if (acoes.oxigenTotal) oxigenTotal += acoes.oxigenTotal;
-    if (acoes.saudeTripulacao) saudeTripulacao += acoes.saudeTripulacao;
-    if (acoes.pesquisaTotal) pesquisaTotal += acoes.pesquisaTotal;
-
-    verificar();
-    atualizarPainel();
-
-    fixasFeitas[indiceFixaAtual] = true;
-    missaoSelecionada = null;
-    indiceFixaAtual = null;
-
-    document.getElementById("detalheMissao").innerHTML = "Mission Done!";
-    atualizarBotoesMissoes();
-    verificarDia();
+    iniciarMinigame(acoes, 'fixa');
 }
 
 // missão sorteada/aleatória que o jogador tem que cumprir 1 por dia
 function sortearMissao() {
     document.getElementById("missao1").classList.add("escondido");
     document.getElementById("missao2").classList.add("escondido");
-    
+
     if (sorteadaFeita || missaoAtual !== null) return;
 
     let missoesA = [
@@ -472,28 +459,59 @@ function sortearMissao() {
     document.getElementById("sortear").classList.add("escondido");
     }
 
-    // escolhe de fato e executa a missao sortida
-    function escolherSorteada(opcaoEscolhida) {
-        let resultado = "";
 
-        if (!missaoAtual || sorteadaFeita) return;
+function escolherSorteada(opcaoEscolhida) {
+    if (!missaoAtual || sorteadaFeita) return;
+    let acoes = (opcaoEscolhida === 'A') ? missaoAtual.acaoA : missaoAtual.acaoB;
+    document.getElementById("botoesDecisao").classList.add("escondido");
+    iniciarMinigame(acoes, 'sorteada');
+}
 
-        let acoes = (opcaoEscolhida === 'A') ? missaoAtual.acaoA : missaoAtual.acaoB;
+// soma os efeitos nos status
+function aplicarAcoes(acoes) {
+    if (acoes.bateriaTotal) bateriaTotal += acoes.bateriaTotal;
+    if (acoes.oxigenTotal) oxigenTotal += acoes.oxigenTotal;
+    if (acoes.saudeTripulacao) saudeTripulacao += acoes.saudeTripulacao;
+    if (acoes.pesquisaTotal) pesquisaTotal += acoes.pesquisaTotal;
+}
 
-        bateriaTotal += acoes.bateriaTotal;
-        saudeTripulacao += acoes.saudeTripulacao;
-        oxigenTotal += acoes.oxigenTotal;
-        pesquisaTotal += acoes.pesquisaTotal;
-
-        verificar()
-        atualizarPainel();
-
-        sorteadaFeita = true;
-        document.getElementById("missaoSorteada").innerHTML = "Mission Accomplished Successfully!";
-        document.getElementById("botoesDecisao").classList.add("escondido");
-        atualizarBotoesMissoes();
-        verificarDia();
+// falhou: os valores negativos ficam 20% piores (-10 vira -12)
+function penalizarAcoes(acoes) {
+    let nova = {};
+    for (let chave in acoes) {
+        let v = acoes[chave];
+        nova[chave] = v < 0 ? Math.round(v * 1.2) : v;
     }
+    return nova;
+}
+
+// conclui a missão depois do minigame
+function finalizarMinigame(passou) {
+    let acoes = passou ? acaoPendente : penalizarAcoes(acaoPendente);
+    aplicarAcoes(acoes);
+    verificar();
+    atualizarPainel();
+
+    let msg = passou ? "Mission Done!" : "Mission completed with problems... (-20% penalty)";
+
+    if (origemPendente === 'fixa') {
+        fixasFeitas[indiceFixaAtual] = true;
+        missaoSelecionada = null;
+        indiceFixaAtual = null;
+        document.getElementById("detalheMissao").innerHTML = msg;
+    } else {
+        sorteadaFeita = true;
+        document.getElementById("missaoSorteada").innerHTML = msg;
+    }
+
+    acaoPendente = null;
+    origemPendente = null;
+
+    document.getElementById("telaMinigame").classList.add("escondido");
+    document.getElementById("telaMissoes").classList.remove("escondido");
+    atualizarBotoesMissoes();
+    verificarDia();
+}
 
 // faz os botoes das missões serem atualizados (sumirem e aparecerem)
 function atualizarBotoesMissoes() {
@@ -532,6 +550,12 @@ function sair() {
 
 //quando o jogador perder e escolher recomaças o jogo, reincia as variáveis e missões
 function recomecar() {
+    cancelAnimationFrame(mgAnim);
+    if (mg) mg.ativo = false;
+    acaoPendente = null;
+    origemPendente = null;
+    document.getElementById("telaMinigame").classList.add("escondido");
+    
     dia = 1;
     bateriaTotal = 100;
     oxigenTotal = 100;
@@ -560,9 +584,9 @@ function passagemDias() {
         verificar()
         atualizarPainel()
     } else {
-        if (bateriaTotal = 0) {
+        if (bateriaTotal === 0) {
             alert("The spaceship doesn't have enough energy to pass the day")
-        } else if (oxigenTotal = 0) {
+        } else if (oxigenTotal === 0) {
             alert("The spaceship ran out of oxygen")
         } else {
             alert("The crew is all sick!")
@@ -602,5 +626,230 @@ function voltar() {
     document.getElementById("telaMissoes").classList.add("escondido");
     document.getElementById("telaJogo").classList.remove("escondido");
 }
+
+const MG = {
+    W: 800, H: 300,
+    chao: 250,            // y do chão
+    velocidade: 260,      // px/s (rolagem do cenário)
+    gravidade: 1800,
+    forcaPulo: 640,
+    totalCaixas: 11,      // entre 10 e 12
+    maxBatidas: 2
+};
+
+let mg = null;
+let mgAnim = null;
+
+function iniciarMinigame(acoes, origem) {
+    acaoPendente = acoes;
+    origemPendente = origem;
+
+    document.getElementById("telaMissoes").classList.add("escondido");
+    document.getElementById("telaMinigame").classList.remove("escondido");
+    document.getElementById("minigameResultado").classList.add("escondido");
+
+    criarMinigame();
+    mg.ultimo = performance.now();
+    mgAnim = requestAnimationFrame(loopMinigame);
+}
+
+function criarMinigame() {
+    let caixas = [];
+    let alturas = [40, 50, 60];
+    for (let i = 0; i < MG.totalCaixas; i++) {
+        caixas.push({
+            x: 700 + i * 340 + Math.random() * 60,
+            w: 40,
+            h: alturas[Math.floor(Math.random() * alturas.length)],
+            batida: false
+        });
+    }
+    mg = {
+        camera: 0,                                   // quanto o cenário já andou
+        caixas: caixas,
+        chegadaX: caixas[caixas.length - 1].x + 500, // linha de chegada (mundo)
+        jogador: { x: 120, y: MG.chao - 50, w: 34, h: 50, vy: 0, noChao: true },
+        batidas: 0,
+        invulneravel: 0,
+        ativo: true,
+        passou: false,
+        ultimo: 0
+    };
+}
+
+function pularMinigame() {
+    if (!mg || !mg.ativo) return;
+    let j = mg.jogador;
+    if (j.noChao) {
+        j.vy = -MG.forcaPulo;
+        j.noChao = false;
+    }
+}
+
+function loopMinigame(agora) {
+    if (!mg || !mg.ativo) return;
+    let dt = Math.min((agora - mg.ultimo) / 1000, 0.05);
+    mg.ultimo = agora;
+
+    atualizarMinigame(dt);
+    desenharMinigame();
+
+    if (mg.ativo) mgAnim = requestAnimationFrame(loopMinigame);
+}
+
+function atualizarMinigame(dt) {
+    let j = mg.jogador;
+
+    // cenário anda da direita para a esquerda
+    mg.camera += MG.velocidade * dt;
+
+    // física do pulo
+    j.vy += MG.gravidade * dt;
+    j.y += j.vy * dt;
+    if (j.y >= MG.chao - j.h) {
+        j.y = MG.chao - j.h;
+        j.vy = 0;
+        j.noChao = true;
+    }
+
+    if (mg.invulneravel > 0) mg.invulneravel -= dt;
+
+    // colisão com as caixas (hitbox um pouco menor pra ser justo)
+    let jx = mg.camera + j.x;
+    for (let c of mg.caixas) {
+        if (c.batida) continue;
+        let colide =
+            jx + j.w - 4 > c.x + 2 &&
+            jx + 4 < c.x + c.w - 2 &&
+            j.y + j.h - 2 > MG.chao - c.h;
+        if (colide) {
+            c.batida = true;
+            mg.batidas++;
+            mg.invulneravel = 1;
+            if (mg.batidas > MG.maxBatidas) {   // 3ª batida = falhou
+                return terminarMinigame(false);
+            }
+        }
+    }
+
+    // chegou na linha de chegada
+    if (jx >= mg.chegadaX) terminarMinigame(true);
+
+    let passadas = mg.caixas.filter(c => c.x + c.w < jx).length;
+    document.getElementById("minigameInfo").innerHTML =
+        "Hits: " + mg.batidas + "/" + MG.maxBatidas + " | Boxes: " + passadas + "/" + MG.totalCaixas;
+}
+
+function terminarMinigame(passou) {
+    mg.ativo = false;
+    mg.passou = passou;
+    cancelAnimationFrame(mgAnim);
+    desenharMinigame();
+
+    document.getElementById("minigameMsg").innerHTML = passou
+        ? "YOU MADE IT! YOUR DECISION WAS SUCCESSFUL!"
+        : "TOO MANY HITS! NEGATIVE EFFECTS WILL BE 20% WORSE.";
+    document.getElementById("minigameResultado").classList.remove("escondido");
+}
+
+function fecharMinigame() {
+    finalizarMinigame(mg.passou);
+}
+
+// ---------- desenho ----------
+function desenharMinigame() {
+    const canvas = document.getElementById("minigameCanvas");
+    const ctx = canvas.getContext("2d");
+    const cam = mg.camera;
+
+    // fundo da nave
+    ctx.fillStyle = "#1b2333";
+    ctx.fillRect(0, 0, MG.W, MG.H);
+
+    // janelas com a Lua (parallax lento)
+    for (let i = -1; i < 6; i++) {
+        let x = i * 220 - (cam * 0.25) % 220;
+        ctx.fillStyle = "#0a0f1c";
+        ctx.fillRect(x + 40, 40, 110, 80);
+        ctx.fillStyle = "#cfd3da";                // superfície lunar
+        ctx.fillRect(x + 40, 100, 110, 20);
+        ctx.fillStyle = "#fff";                   // estrelas
+        ctx.fillRect(x + 60, 60, 2, 2);
+        ctx.fillRect(x + 110, 75, 2, 2);
+        ctx.strokeStyle = "#5b6b8a";
+        ctx.lineWidth = 4;
+        ctx.strokeRect(x + 40, 40, 110, 80);
+    }
+
+    // painéis da parede (parallax médio)
+    ctx.strokeStyle = "#2c3a55";
+    ctx.lineWidth = 2;
+    for (let i = -1; i < 12; i++) {
+        let x = i * 110 - (cam * 0.6) % 110;
+        ctx.strokeRect(x, 150, 110, 100);
+    }
+
+    // chão (rolagem total)
+    ctx.fillStyle = "#59647c";
+    ctx.fillRect(0, MG.chao, MG.W, MG.H - MG.chao);
+    ctx.strokeStyle = "#3a445a";
+    for (let i = -1; i < 20; i++) {
+        let x = i * 60 - cam % 60;
+        ctx.beginPath();
+        ctx.moveTo(x, MG.chao);
+        ctx.lineTo(x - 20, MG.H);
+        ctx.stroke();
+    }
+
+    // linha de chegada (xadrez)
+    let fx = mg.chegadaX - cam;
+    if (fx < MG.W + 40) {
+        for (let y = 0; y < MG.chao; y += 20) {
+            for (let k = 0; k < 2; k++) {
+                ctx.fillStyle = ((y / 20 + k) % 2 === 0) ? "#fff" : "#000";
+                ctx.fillRect(fx + k * 20, y, 20, 20);
+            }
+        }
+    }
+
+    // caixas
+    for (let c of mg.caixas) {
+        let x = c.x - cam;
+        if (x > MG.W || x + c.w < 0) continue;
+        let y = MG.chao - c.h;
+        ctx.fillStyle = c.batida ? "#7a4a3a" : "#b8793e";
+        ctx.fillRect(x, y, c.w, c.h);
+        ctx.strokeStyle = "#5a3a1a";
+        ctx.lineWidth = 3;
+        ctx.strokeRect(x, y, c.w, c.h);
+        ctx.beginPath();
+        ctx.moveTo(x, y); ctx.lineTo(x + c.w, y + c.h);
+        ctx.moveTo(x + c.w, y); ctx.lineTo(x, y + c.h);
+        ctx.stroke();
+    }
+
+    // astronauta (pisca quando está invulnerável)
+    let j = mg.jogador;
+    if (mg.invulneravel <= 0 || Math.floor(mg.invulneravel * 10) % 2 === 0) {
+        ctx.fillStyle = "#f2f2f2";
+        ctx.fillRect(j.x, j.y + 16, j.w, j.h - 16);       // corpo
+        ctx.fillRect(j.x + 4, j.y, j.w - 8, 20);          // capacete
+        ctx.fillStyle = "#3aa0ff";
+        ctx.fillRect(j.x + 12, j.y + 5, j.w - 16, 10);    // visor
+        ctx.fillStyle = "#c9c9c9";
+        ctx.fillRect(j.x - 6, j.y + 20, 8, 22);           // mochila
+    }
+}
+
+// ---------- controles ----------
+document.addEventListener("keydown", function (e) {
+    if (e.code === "Space" || e.code === "ArrowUp") {
+        if (mg && mg.ativo) {
+            e.preventDefault();
+            pularMinigame();
+        }
+    }
+});
+document.getElementById("minigameCanvas").addEventListener("pointerdown", pularMinigame);
 
 atualizarPainel()
