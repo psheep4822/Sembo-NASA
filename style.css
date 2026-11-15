@@ -298,3 +298,16 @@ button:hover {
 .dica {
     color:#000;
 }
+
+#minigameInfo {
+    display: inline-block;          /* a caixa se ajusta ao tamanho do texto */
+    background-color: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    padding: 6px 14px;
+    margin: 8px 0;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
