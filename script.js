@@ -1,3 +1,11 @@
+// ---------- MODO TESTE (cheats) ----------
+// só funciona se a página for aberta com ?cheat no endereço, ex.: index.html?cheat
+// para desativar de vez antes de entregar, troque a linha do "ativo" por: ativo: false
+const CHEATS = {
+    ativo: new URLSearchParams(location.search).has("cheat"),
+    pularMinigame: false     // true = a missão passa direto, sem abrir o minigame
+};
+
 // variáveis globais usadas durante todo o código
 let dia = 1
 let bateriaTotal = 100
@@ -672,6 +680,12 @@ function iniciarMinigame(acoes, origem) {
     acaoPendente = acoes;
     origemPendente = origem;
 
+    // cheat: conclui a missão como vitória, sem abrir o minigame
+    if (CHEATS.ativo && CHEATS.pularMinigame) {
+        finalizarMinigame(true);
+        return;
+    }
+
     document.getElementById("telaMissoes").classList.add("escondido");
     document.getElementById("telaMinigame").classList.remove("escondido");
     document.getElementById("minigameResultado").classList.add("escondido");
@@ -858,6 +872,12 @@ function desenharMinigame() {
 }
 // ---------- controles ----------
 document.addEventListener("keydown", function (e) {
+    // cheats: P = vencer o minigame, O = falhar (testa a penalidade de 20%)
+    if (CHEATS.ativo && mg && mg.ativo) {
+        if (e.code === "KeyP") return terminarMinigame(true);
+        if (e.code === "KeyO") return terminarMinigame(false);
+    }
+
     if (e.code === "Space" || e.code === "ArrowUp") {
         if (mg && mg.ativo) {
             e.preventDefault();
@@ -871,3 +891,25 @@ if (canvasMG) canvasMG.addEventListener("pointerdown", pularMinigame);
 
 
 atualizarPainel()
+
+// ---------- cheats de console (só com ?cheat) ----------
+// exemplos: cheat.dia(10)  |  cheat.stats(100, 100, 100, 80)  |  CHEATS.pularMinigame = true
+const cheat = {
+    // pula para o dia n (1 a 10)
+    dia(n) {
+        if (!CHEATS.ativo) return;
+        dia = Math.max(1, Math.min(10, n));
+        resetarMissoes();
+        atualizarPainel();
+    },
+    // define energia, oxigênio, saúde e pesquisa
+    stats(bat, oxi, saude, pesq) {
+        if (!CHEATS.ativo) return;
+        bateriaTotal = bat;
+        oxigenTotal = oxi;
+        saudeTripulacao = saude;
+        pesquisaTotal = pesq;
+        verificar();
+        atualizarPainel();
+    }
+};
