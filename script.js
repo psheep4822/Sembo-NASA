@@ -342,6 +342,9 @@ function escolherOpcaoFixa(opcao) {
 
 // missão sorteada/aleatória que o jogador tem que cumprir 1 por dia
 function sortearMissao() {
+    document.getElementById("missao1").classList.add("escondido");
+    document.getElementById("missao2").classList.add("escondido");
+    
     if (sorteadaFeita || missaoAtual !== null) return;
 
     let missoesA = [
