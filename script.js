@@ -850,6 +850,9 @@ document.addEventListener("keydown", function (e) {
         }
     }
 });
-document.getElementById("minigameCanvas").addEventListener("pointerdown", pularMinigame);
+
+const canvasMG = document.getElementById("minigameCanvas");
+if (canvasMG) canvasMG.addEventListener("pointerdown", pularMinigame);
+
 
 atualizarPainel()
