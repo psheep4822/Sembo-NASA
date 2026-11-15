@@ -138,7 +138,7 @@ button:hover {
     background-image: url('cenarios/fundoMissoes.png');
 }
 
-#marcaDagua {
+.marcaDagua {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -188,12 +188,14 @@ button:hover {
 .fullwidth {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     justify-content: center;
     align-content: center;
 }
 
 @media (max-width: 600px) {
-    #marcaDagua {
+    .marcaDagua {
         width: 10rem;
         height: auto
     }
@@ -251,7 +253,7 @@ button:hover {
     padding: 2px;
     margin: 12px 0;
     line-height: 1.5;
-    font-size: 5rem;
+    font-size: clamp(2rem, 10vw, 5rem);
 }
 
 #telaJogo {
