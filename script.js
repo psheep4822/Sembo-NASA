@@ -696,7 +696,7 @@ function criarMinigame() {
         camera: 0,                                   // quanto o cenário já andou
         caixas: caixas,
         chegadaX: caixas[caixas.length - 1].x + 500, // linha de chegada (mundo)
-        jogador: { x: 120, y: MG.chao - 50, w: 34, h: 50, vy: 0, noChao: true },
+        jogador: { x: 120, y: MG.chao - 70, w: 48, h: 70, vy: 0, noChao: true },
         batidas: 0,
         invulneravel: 0,
         ativo: true,
@@ -790,50 +790,31 @@ function fecharMinigame() {
     finalizarMinigame(mg.passou);
 }
 
+const imgFundo = new Image();
+imgFundo.src = "minigame/fundo.png";
+
+const imgAstronauta = new Image();
+imgAstronauta.src = "minigame/astronauta.png";
+
+function desenharCamada(ctx, img, y, altura, vel) {
+    if (!img.complete || img.naturalWidth === 0) return;
+    let largura = img.naturalWidth * (altura / img.naturalHeight);
+    let deslocamento = (mg.camera * vel) % largura;
+    for (let x = -deslocamento; x < MG.W; x += largura) {
+        ctx.drawImage(img, x, y, largura, altura);
+    }
+}
+
 // ---------- desenho ----------
 function desenharMinigame() {
     const canvas = document.getElementById("minigameCanvas");
     const ctx = canvas.getContext("2d");
     const cam = mg.camera;
 
-    // fundo da nave
-    ctx.fillStyle = "#1b2333";
+    // fundo (cobre o canvas inteiro e rola junto com as caixas)
+    ctx.fillStyle = "#1b2333";                         // cor de segurança enquanto a imagem carrega
     ctx.fillRect(0, 0, MG.W, MG.H);
-
-    // janelas com a Lua (parallax lento)
-    for (let i = -1; i < 6; i++) {
-        let x = i * 220 - (cam * 0.25) % 220;
-        ctx.fillStyle = "#0a0f1c";
-        ctx.fillRect(x + 40, 40, 110, 80);
-        ctx.fillStyle = "#cfd3da";                // superfície lunar
-        ctx.fillRect(x + 40, 100, 110, 20);
-        ctx.fillStyle = "#fff";                   // estrelas
-        ctx.fillRect(x + 60, 60, 2, 2);
-        ctx.fillRect(x + 110, 75, 2, 2);
-        ctx.strokeStyle = "#5b6b8a";
-        ctx.lineWidth = 4;
-        ctx.strokeRect(x + 40, 40, 110, 80);
-    }
-
-    // painéis da parede (parallax médio)
-    ctx.strokeStyle = "#2c3a55";
-    ctx.lineWidth = 2;
-    for (let i = -1; i < 12; i++) {
-        let x = i * 110 - (cam * 0.6) % 110;
-        ctx.strokeRect(x, 150, 110, 100);
-    }
-
-    // chão (rolagem total)
-    ctx.fillStyle = "#59647c";
-    ctx.fillRect(0, MG.chao, MG.W, MG.H - MG.chao);
-    ctx.strokeStyle = "#3a445a";
-    for (let i = -1; i < 20; i++) {
-        let x = i * 60 - cam % 60;
-        ctx.beginPath();
-        ctx.moveTo(x, MG.chao);
-        ctx.lineTo(x - 20, MG.H);
-        ctx.stroke();
-    }
+    desenharCamada(ctx, imgFundo, 0, MG.H, 1);
 
     // linha de chegada (xadrez)
     let fx = mg.chegadaX - cam;
@@ -857,24 +838,24 @@ function desenharMinigame() {
         ctx.lineWidth = 3;
         ctx.strokeRect(x, y, c.w, c.h);
         ctx.beginPath();
-        ctx.moveTo(x, y); ctx.lineTo(x + c.w, y + c.h);
-        ctx.moveTo(x + c.w, y); ctx.lineTo(x, y + c.h);
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + c.w, y + c.h);
+        ctx.moveTo(x + c.w, y);
+        ctx.lineTo(x, y + c.h);
         ctx.stroke();
     }
 
     // astronauta (pisca quando está invulnerável)
     let j = mg.jogador;
     if (mg.invulneravel <= 0 || Math.floor(mg.invulneravel * 10) % 2 === 0) {
-        ctx.fillStyle = "#f2f2f2";
-        ctx.fillRect(j.x, j.y + 16, j.w, j.h - 16);       // corpo
-        ctx.fillRect(j.x + 4, j.y, j.w - 8, 20);          // capacete
-        ctx.fillStyle = "#3aa0ff";
-        ctx.fillRect(j.x + 12, j.y + 5, j.w - 16, 10);    // visor
-        ctx.fillStyle = "#c9c9c9";
-        ctx.fillRect(j.x - 6, j.y + 20, 8, 22);           // mochila
+        if (imgAstronauta.complete && imgAstronauta.naturalWidth > 0) {
+            ctx.drawImage(imgAstronauta, j.x, j.y, j.w, j.h);
+        } else {
+            ctx.fillStyle = "#f2f2f2";                 // reserva se a imagem não carregar
+            ctx.fillRect(j.x, j.y, j.w, j.h);
+        }
     }
 }
-
 // ---------- controles ----------
 document.addEventListener("keydown", function (e) {
     if (e.code === "Space" || e.code === "ArrowUp") {
