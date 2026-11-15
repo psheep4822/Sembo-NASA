@@ -293,3 +293,8 @@ button:hover {
     touch-action: none;   /* evita scroll/zoom ao tocar no celular */
     background: #000;
 }
+
+#minigameMsg,
+.dica {
+    color:#000;
+}
