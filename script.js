@@ -19,6 +19,7 @@ let sorteadaFeita = false;
 let indiceFixaAtual = null;
 let acaoPendente = null;
 let origemPendente = null; 
+let sorteadasUsadas = [];
 
 // altera os cenários a cada dia que passa
 const cenarios = [
@@ -459,11 +460,21 @@ function sortearMissao() {
         }
     ];
 
-    let indice = Math.floor(Math.random() * missoesA.length);
+    let disponiveis = [];
+    for (let i = 0; i < missoesA.length; i++) {
+        if (!sorteadasUsadas.includes(i)) disponiveis.push(i);
+    }
+    if (disponiveis.length === 0) {            // acabaram: recomeça o ciclo
+        sorteadasUsadas = [];
+        disponiveis = missoesA.map((_, i) => i);
+    }
+
+    let indice = disponiveis[Math.floor(Math.random() * disponiveis.length)];
+    sorteadasUsadas.push(indice);
     missaoAtual = missoesA[indice];
-    mostrarSorteadaPendente();
-    document.getElementById("sortear").classList.add("escondido");
-}
+        mostrarSorteadaPendente();
+        document.getElementById("sortear").classList.add("escondido");
+    }
 
 // a missão sorteada está esperando o jogador escolher A ou B?
 function sorteadaPendente() {
@@ -593,6 +604,7 @@ function recomecar() {
     oxigenTotal = 100;
     pesquisaTotal = 0;
     saudeTripulacao = 100;
+    sorteadasUsadas = [];
 
     resetarMissoes();
     atualizarPainel();
@@ -606,11 +618,6 @@ function recomecar() {
 
 //controla a passagem dos dias apenas se as missões forem cumpridas e o jogador não tiver zerado nenhuma das variáveis
 function passagemDias() {
-    // desgaste da noite: aplica primeiro e só depois confere se alguma variável zerou
-    bateriaTotal -= 5
-    oxigenTotal -= 5
-    saudeTripulacao -= 5
-    pesquisaTotal += 5
     verificar()
     atualizarPainel()
 
@@ -670,7 +677,8 @@ const MG = {
     gravidade: 1800,
     forcaPulo: 640,
     totalCaixas: 11,      // entre 10 e 12
-    maxBatidas: 3         // a 3ª batida faz falhar
+    maxBatidas: 3,        // a 3ª batida faz falhar
+    hitbox: { esq: 10, dir: 10, topo: 12, base: 4 }
 };
 
 let mg = null;
@@ -756,24 +764,29 @@ function atualizarMinigame(dt) {
 
     if (mg.invulneravel > 0) mg.invulneravel -= dt;
 
-    // colisão com as caixas (hitbox um pouco menor pra ser justo)
     let jx = mg.camera + j.x;
+    let hb = MG.hitbox;
+
+    let esquerda = jx + hb.esq;
+    let direita  = jx + j.w - hb.dir;
+    let baixo    = j.y + j.h - hb.base;     // pés do astronauta
+
     for (let c of mg.caixas) {
         if (c.batida) continue;
         let colide =
-            jx + j.w - 4 > c.x + 2 &&
-            jx + 4 < c.x + c.w - 2 &&
-            j.y + j.h - 2 > MG.chao - c.h;
+            direita > c.x &&
+            esquerda < c.x + c.w &&
+            baixo > MG.chao - c.h;           // só bate se os pés estiverem abaixo do topo da caixa
         if (colide) {
             c.batida = true;
             mg.batidas++;
             mg.invulneravel = 1;
-            if (mg.batidas >= MG.maxBatidas) {   // atingiu o limite = falhou
+            if (mg.batidas >= MG.maxBatidas) {
                 atualizarHudMinigame(jx);
                 return terminarMinigame(false);
             }
-        }
     }
+}
 
     // chegou na linha de chegada
     if (jx >= mg.chegadaX) terminarMinigame(true);
