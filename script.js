@@ -317,7 +317,7 @@ function abrirMissaoFixa(index) {
         <p>${missaoSelecionada.descricao}</p>
         <button class="botaoMissao" onclick="escolherOpcaoFixa('A')">${missaoSelecionada.opcaoATexto}</button>
         <button class="botaoMissao" onclick="escolherOpcaoFixa('B')">${missaoSelecionada.opcaoBTexto}</button>
-        <small>Font: ${missaoSelecionada.fonte}</small>
+        <small>Source: ${missaoSelecionada.fonte}</small>
     `;
 }
 
@@ -470,7 +470,7 @@ function mostrarSorteadaPendente() {
         <em>What it is:</em> ${missaoAtual.descricao}<br><br>
         <strong>[A]</strong> ${missaoAtual.opcaoATexto}<br>
         <strong>[B]</strong> ${missaoAtual.opcaoBTexto}<br>
-        <small>Font: ${missaoAtual.fonte}</small>
+        <small>Source: ${missaoAtual.fonte}</small>
     `;
     document.getElementById("botoesDecisao").classList.remove("escondido");
 }
