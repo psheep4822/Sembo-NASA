@@ -150,16 +150,29 @@ button:hover {
     pointer-events: none;
 }
 
-#bloco {
-    cursor: pointer;
+#blocoArea {
     position: fixed;
-    bottom: 0px;
-    right: 0px;
+    bottom: 0;
+    right: 0;
     width: 250px;
-    height: auto;
-    margin: 0;
-    padding: 0;
     z-index: 99999999;
+    text-align: center;
+}
+
+#blocoTitulo {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    text-shadow: 0 0 4px #000, 0 0 8px #000;
+    pointer-events: none;
+}
+#bloco {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
 }
 
 #sair {
