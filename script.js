@@ -625,7 +625,7 @@ function passagemDias() {
     atualizarPainel()
 
     if (dia > 10) {
-        if (pesquisaTotal <= 45) {
+        if (pesquisaTotal <= 75) {
             alert("You survived the 10 days, but you've done too little researches. Researches are the primary focus of a mission like this, so research more on next.")
         } else {
             alert("Congratulations! You survived the 10 days and did a lot of research!")
