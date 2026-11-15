@@ -313,3 +313,48 @@ button:hover {
     letter-spacing: 1px;
     line-height: 1.4;
 }
+
+
+/* ---------- página "About Sembo": lista da equipe ---------- */
+.tituloEquipe {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.equipe {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.membro {
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+}
+
+.membro img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+}
+
+.membro h3 {
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.membro p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 4px;
+}
+
+@media (max-width: 400px) {
+    .equipe {
+        grid-template-columns: 1fr;
+    }
+}
