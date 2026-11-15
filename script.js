@@ -569,7 +569,7 @@ function resetarMissoes() {
 
 //botão para saída do jogo e retorno a tela inicial de menu
 function sair() {
-        recomecar()
+    recomecar()
 }
 
 //quando o jogador perder e escolher recomaças o jogo, reincia as variáveis e missões
@@ -598,16 +598,15 @@ function recomecar() {
 
 //controla a passagem dos dias apenas se as missões forem cumpridas e o jogador não tiver zerado nenhuma das variáveis
 function passagemDias() {
-    if (bateriaTotal > 0 && oxigenTotal > 0 && saudeTripulacao > 0) {
-        bateriaTotal -= 5
-        oxigenTotal -= 5
-        saudeTripulacao -= 5
-        pesquisaTotal += 5
-        dia += 1
-        resetarMissoes()
-        verificar()
-        atualizarPainel()
-    } else {
+    // desgaste da noite: aplica primeiro e só depois confere se alguma variável zerou
+    bateriaTotal -= 5
+    oxigenTotal -= 5
+    saudeTripulacao -= 5
+    pesquisaTotal += 5
+    verificar()
+    atualizarPainel()
+
+    if (bateriaTotal === 0 || oxigenTotal === 0 || saudeTripulacao === 0) {
         if (bateriaTotal === 0) {
             alert("The spaceship doesn't have enough energy to pass the day")
         } else if (oxigenTotal === 0) {
@@ -620,7 +619,11 @@ function passagemDias() {
         document.getElementById("telaPerdeu").classList.remove("escondido");
         return;
     }
-    
+
+    dia += 1
+    resetarMissoes()
+    atualizarPainel()
+
     if (dia > 10) {
         if (pesquisaTotal <= 45) {
             alert("You survived the 10 days, but you've done too little researches. Researches are the primary focus of a mission like this, so research more on next.")
@@ -659,7 +662,7 @@ const MG = {
     gravidade: 1800,
     forcaPulo: 640,
     totalCaixas: 11,      // entre 10 e 12
-    maxBatidas: 2
+    maxBatidas: 3         // a 3ª batida faz falhar
 };
 
 let mg = null;
@@ -751,7 +754,8 @@ function atualizarMinigame(dt) {
             c.batida = true;
             mg.batidas++;
             mg.invulneravel = 1;
-            if (mg.batidas > MG.maxBatidas) {   // 3ª batida = falhou
+            if (mg.batidas >= MG.maxBatidas) {   // atingiu o limite = falhou
+                atualizarHudMinigame(jx);
                 return terminarMinigame(false);
             }
         }
@@ -760,6 +764,11 @@ function atualizarMinigame(dt) {
     // chegou na linha de chegada
     if (jx >= mg.chegadaX) terminarMinigame(true);
 
+    atualizarHudMinigame(jx);
+}
+
+// atualiza o texto "Hits / Boxes" acima do canvas
+function atualizarHudMinigame(jx) {
     let passadas = mg.caixas.filter(c => c.x + c.w < jx).length;
     document.getElementById("minigameInfo").innerHTML =
         "Hits: " + mg.batidas + "/" + MG.maxBatidas + " | Boxes: " + passadas + "/" + MG.totalCaixas;
