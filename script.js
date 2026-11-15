@@ -306,6 +306,7 @@ let missaoSelecionada = null;
 // abre e mostra de fatp a missão fixa diária
 function abrirMissaoFixa(index) {
     if (fixasFeitas[index]) return;
+    esconderSorteadaPendente();
     indiceFixaAtual = index;
     missaoSelecionada = missoesFixasAtuais[index];
     document.getElementById("missao1").classList.add("escondido");
@@ -329,10 +330,15 @@ function escolherOpcaoFixa(opcao) {
 
 // missão sorteada/aleatória que o jogador tem que cumprir 1 por dia
 function sortearMissao() {
+    if (sorteadaFeita || missaoAtual !== null) return;
+
+    // fecha qualquer missão fixa que esteja aberta, para não ter duas ao mesmo tempo
+    missaoSelecionada = null;
+    indiceFixaAtual = null;
+    document.getElementById("detalheMissao").innerHTML = "";
+
     document.getElementById("missao1").classList.add("escondido");
     document.getElementById("missao2").classList.add("escondido");
-
-    if (sorteadaFeita || missaoAtual !== null) return;
 
     let missoesA = [
         {
@@ -447,17 +453,34 @@ function sortearMissao() {
 
     let indice = Math.floor(Math.random() * missoesA.length);
     missaoAtual = missoesA[indice];
-    let textoHTML = `
+    mostrarSorteadaPendente();
+    document.getElementById("sortear").classList.add("escondido");
+}
+
+// a missão sorteada está esperando o jogador escolher A ou B?
+function sorteadaPendente() {
+    return missaoAtual !== null && !sorteadaFeita;
+}
+
+// mostra na tela a missão sorteada que ainda não foi resolvida
+function mostrarSorteadaPendente() {
+    if (!sorteadaPendente()) return;
+    document.getElementById("missaoSorteada").innerHTML = `
         <strong>${missaoAtual.titulo}</strong><br>
         <em>What it is:</em> ${missaoAtual.descricao}<br><br>
         <strong>[A]</strong> ${missaoAtual.opcaoATexto}<br>
         <strong>[B]</strong> ${missaoAtual.opcaoBTexto}<br>
         <small>Font: ${missaoAtual.fonte}</small>
     `;
-    document.getElementById("missaoSorteada").innerHTML = textoHTML;
     document.getElementById("botoesDecisao").classList.remove("escondido");
-    document.getElementById("sortear").classList.add("escondido");
-    }
+}
+
+// esconde a missão sorteada pendente (ela continua guardada em missaoAtual)
+function esconderSorteadaPendente() {
+    if (!sorteadaPendente()) return;
+    document.getElementById("missaoSorteada").innerHTML = "";
+    document.getElementById("botoesDecisao").classList.add("escondido");
+}
 
 
 function escolherSorteada(opcaoEscolhida) {
@@ -510,6 +533,7 @@ function finalizarMinigame(passou) {
     document.getElementById("telaMinigame").classList.add("escondido");
     document.getElementById("telaMissoes").classList.remove("escondido");
     atualizarBotoesMissoes();
+    mostrarSorteadaPendente();
     verificarDia();
 }
 
@@ -616,6 +640,7 @@ function missoes() {
     document.getElementById("telaJogo").classList.add("escondido");
     document.getElementById("telaMissoes").classList.remove("escondido");
     atualizarBotoesMissoes();
+    mostrarSorteadaPendente();
 }
 
 //botao de voltar para a tela do jogo e sair das missões
