@@ -277,7 +277,7 @@ button:hover {
 
 #status .texts {
     width: 100%;
-    min-height: 100vh;
+    max-width: 360px;    /* largura do painel, ajuste como preferir */
     margin: 0;
     text-align: center;
 }
