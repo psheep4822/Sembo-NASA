@@ -223,3 +223,14 @@ button:hover {
   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
   z-index: -1; /* Specify a stack order in case you're using a different order for other elements */
 }
+
+#astronauta {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 100px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    z-index: 99999999;
+}
