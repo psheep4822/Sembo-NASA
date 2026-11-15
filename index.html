@@ -13,7 +13,7 @@
     <img src="marcaDagua.png" alt="Sembo Logo" id="marcaDagua">
 
     <div id="telaMenu" class="tela-menu">
-        <h1 class="faixaFundo">Atlas Mission</h1>
+        <h1 class="faixaFundo">ATLAS MISSION</h1>
         <div class="fullwidth">
             <a href="presentationSembo.html">
                 <img src="botoes/aboutUs.png" id="aboutUsButton" class="imgButton">
@@ -29,14 +29,14 @@
 
     <div id="telaJogo" class="escondido">
         <div id="overlay"></div>
-        <p id="diasPassados" class="texts">Current Day: 0</p>
+        <p id="diasPassados" class="texts">CURRENT DAY: 0</p>
         <div class="fullwidth">
             <img id="btnPassagemDias" class="escondido imgButton" src="botoes/newDay.png" onclick="passagemDias()">
         </div>
-        <p id="bateriaNave" class="texts">Spaceship Energy: 100</p>
-        <p id="oxigenNave" class="texts">Spaceship Oxygen: 100</p>
-        <p id="pesquisaNave" class="texts">Reseach Points: 0</p>
-        <p id="saudeTripulacao" class="texts">Crew Health: 100</p>
+        <p id="bateriaNave" class="texts">SPACESHIP ENERGY: 100</p>
+        <p id="oxigenNave" class="texts">SPACESHIP OXYGEN: 100</p>
+        <p id="pesquisaNave" class="texts">RESEARCH POINTS: 0</p>
+        <p id="saudeTripulacao" class="texts">CREW HEALTH: 100</p>
 
         <img src="blocoNotas.png" alt="Mission Post-it Block" id="bloco" onclick="missoes()">
 
@@ -46,33 +46,33 @@
     <div id="telaMissoes" class="escondido">
         <h1>Mission</h1>
         <p id="missoes">Choose a mission to do:</p>
-        <button id="missao1" class="botaoMissao" onclick="abrirMissaoFixa(0)">Mission 1</button>
-        <button id="missao2" class="botaoMissao" onclick="abrirMissaoFixa(1)">Mission 2</button>
+        <button id="missao1" class="botaoMissao" onclick="abrirMissaoFixa(0)">MISSION 1</button>
+        <button id="missao2" class="botaoMissao" onclick="abrirMissaoFixa(1)">MISSION 2</button>
         <p id="missaoSorteada"></p>
         <div id="sortear" class="escondido">
-            <button id="btnSortear" class="sortear" onclick="sortearMissao()">Do the daily random mission</button>
+            <button id="btnSortear" class="sortear" onclick="sortearMissao()">DO THE DAILY RANDOM MISSIONS!</button>
         </div>
 
         <div id="detalheMissao"></div>
 
         <div id="botoesDecisao" class="escondido">
-            <button class="adicionar" onclick="escolherSorteada('A')">Choose A</button>
-            <button class="adicionar" onclick="escolherSorteada('B')">Choose B</button>
+            <button class="adicionar" onclick="escolherSorteada('A')">CHOOSE A</button>
+            <button class="adicionar" onclick="escolherSorteada('B')">CHOOSE B</button>
         </div>
 
-        <button class="subtrair" onclick="voltar()">Go back</button>
+        <button class="subtrair" onclick="voltar()">GO BACK</button>
     </div>
 
     <div id="telaPerdeu" class="escondido">
-        <h1>Game Over</h1>
-        <p id="resultadoP">The astronauts couldn't complete the mission</p>
-        <button class="sair" onclick="recomecar()">Play Again</button>
+        <h1>GAME OVER!</h1>
+        <p id="resultadoP">THE ASTRONAUTS COULDN'T COMPLETE THE MISSIONS!</p>
+        <button class="sair" onclick="recomecar()">PLAY AGAIN</button>
     </div>
 
     <div id="telaVenceu" class="escondido">
-        <h1>You Won!</h1>
-        <p id="resultadoV">Congratulations! You survived all the 10 days!</p>
-        <button class="sair" onclick="recomecar()">Play Again</button>
+        <h1>YOU WON!</h1>
+        <p id="resultadoV">CONGRATULATIONS! YOU SURVIVED THE 10 DAYS!</p>
+        <button class="sair" onclick="recomecar()">PLAY AGAIN</button>
     </div>
 
     <script src="script.js"></script>
