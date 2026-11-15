@@ -147,7 +147,7 @@ button:hover {
     position: fixed;
     bottom: 0px;
     right: 0px;
-    width: 100px;
+    width: 200px;
     height: auto;
     margin: 0;
     padding: 0;
@@ -190,7 +190,7 @@ button:hover {
     }
 
     #bloco {
-        width: 5rem;
+        width: 10rem;
         height: auto;
     }
 
