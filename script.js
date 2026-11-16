@@ -65,7 +65,6 @@ function verificar() {
     if (pesquisaTotal > 100) pesquisaTotal = 100;
     if (pesquisaTotal < 0) pesquisaTotal = 0;
 }
-
 // missões fixas que alteram diariamente
 function missoesFixas() {
     if (dia === 1) {
@@ -74,20 +73,20 @@ function missoesFixas() {
                 id: "fixa1",
                 titulo: "CHECKING THE AIR AND WATER SYSTEM (ECLSS)",
                 descricao: "THE ECLSS IS THE SYSTEM THAT KEEPS ASTRONAUTS ALIVE. IT CLEANS THE AIR, RECYCLES WATER, AND KEEPS THE SPACESHIP AT A GOOD TEMPERATURE AND AIR PRESSURE.",
-                opcaoATexto: "FIX EVERYTHING (-15 ENERGY, +5 HEALTH)",
-                acaoA: { bateriaTotal: -15, saudeTripulacao: 5 },
-                opcaoBTexto: "SAVE ENERGY MODE (0 ENERGY, -10 HEALTH)",
-                acaoB: { bateriaTotal: 0, saudeTripulacao: -10 },
+                opcaoATexto: "FIX EVERYTHING (-10 ENERGY, +10 HEALTH)",
+                acaoA: { bateriaTotal: -10, saudeTripulacao: 10 },
+                opcaoBTexto: "SAVE ENERGY MODE (0 ENERGY, -5 HEALTH)",
+                acaoB: { bateriaTotal: 0, saudeTripulacao: -5 },
                 fonte: "NASA – ARTEMIS II LIFE SUPPORT SYSTEMS OVERVIEW / OSDR (OPEN SCIENCE DATA REPOSITORY)."
             },
             {
                 id: "fixa2",
                 titulo: "SUN RAYS SHIELD CHECK",
                 descricao: "WATCH THE DANGEROUS RAYS IN DEEP SPACE USING SPECIAL METERS WORN BY ASTRONAUTS. THIS HELPS PROTECT THE BODY FROM SPACE RAYS.",
-                opcaoATexto: "TURN ON THE SHIELD (-20 ENERGY, +10 HEALTH)",
-                acaoA: { bateriaTotal: -20, saudeTripulacao: 10 },
-                opcaoBTexto: "ONLY WATCH THE RAYS (0 ENERGY, +15 RESEARCH)",
-                acaoB: {pesquisaTotal: 15 },
+                opcaoATexto: "TURN ON THE SHIELD (-10 ENERGY, +10 HEALTH)",
+                acaoA: { bateriaTotal: -10, saudeTripulacao: 10 },
+                opcaoBTexto: "ONLY WATCH THE RAYS (0 ENERGY, +10 RESEARCH)",
+                acaoB: {pesquisaTotal: 10 },
                 fonte: "SPACE RADIATION ANALYSIS GROUP (SRAG) AND OSDR DATA."
             }
         ];
@@ -100,16 +99,16 @@ function missoesFixas() {
                 descricao: "THE MOON'S GRAVITY CAN GENTLY PULL THE CAPSULE BACK TOWARD EARTH, EVEN IF THE MAIN ENGINE STOPS WORKING.",
                 opcaoATexto: "CAREFUL FIX (-10 ENERGY, +10 RESEARCH)",
                 acaoA: { bateriaTotal: -10, pesquisaTotal: 10 },
-                opcaoBTexto: "WAIT FOR THE NEXT LOOP AROUND (-5 OXYGEN, -5 HEALTH)",
-                acaoB: { oxigenTotal: -5, saudeTripulacao: -5 },
+                opcaoBTexto: "WAIT FOR THE NEXT LOOP AROUND (-5 OXYGEN, +5 RESEARCH)",
+                acaoB: { oxigenTotal: -5, pesquisaTotal: 5 },
                 fonte: "NASA – ARTEMIS II MISSION TRAJECTORY DESIGN."
             },
             {
                 id: "fixa2",
                 titulo: "HEAT SHIELD CHECK",
                 descricao: "CHECK THE SPECIAL SHIELD ON THE ORION CAPSULE. IT PROTECTS THE SHIP FROM SUPER HOT TEMPERATURES WHEN IT COMES BACK INTO EARTH'S AIR.",
-                opcaoATexto: "DEEP SCAN (-15 ENERGY, +5 RESEARCH)",
-                acaoA: { bateriaTotal: -15, pesquisaTotal: 5 },
+                opcaoATexto: "DEEP SCAN (-10 ENERGY, +10 RESEARCH)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 10 },
                 opcaoBTexto: "QUICK LOOK WITH YOUR EYES (0 RESOURCES)",
                 acaoB: {},
                 fonte: "NASA – ORION HEAT SHIELD ENGINEERING REPORTS."
@@ -121,8 +120,8 @@ function missoesFixas() {
                 id: "fixa1",
                 titulo: "REPORT TO EARTH (DSN)",
                 descricao: "THE DSN IS NASA'S WORLDWIDE GROUP OF BIG RADIO ANTENNAS. THEY TALK TO SPACESHIPS FAR AWAY IN DEEP SPACE.",
-                opcaoATexto: "SEND EVERYTHING (-15 ENERGY, +10 RESEARCH)",
-                acaoA: { bateriaTotal: -15, pesquisaTotal: 10 },
+                opcaoATexto: "SEND EVERYTHING (-10 ENERGY, +10 RESEARCH)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 10 },
                 opcaoBTexto: "SEND ONLY THE BASICS (-5 ENERGY, +5 RESEARCH)",
                 acaoB: { bateriaTotal: -5, pesquisaTotal: 5 },
                 fonte: "NASA – DEEP SPACE NETWORK (DSN) MISSION OPERATIONS."
@@ -131,8 +130,8 @@ function missoesFixas() {
                 id: "fixa2",
                 titulo: "MAIN BATTERY BACKUP TEST",
                 descricao: "ORION'S BATTERIES STORE ELECTRICITY. THEY KEEP THE SPACESHIP RUNNING WHEN THE SOLAR PANELS CAN'T MAKE POWER.",
-                opcaoATexto: "CHARGE IT ALL THE WAY (-10 OXYGEN, +15 ENERGY)",
-                acaoA: { oxigenTotal: -10, bateriaTotal: 15 },
+                opcaoATexto: "CHARGE IT ALL THE WAY (-5 OXYGEN, +10 ENERGY)",
+                acaoA: { oxigenTotal: -5, bateriaTotal: 10 },
                 opcaoBTexto: "CHARGE IT A LITTLE (0 RESOURCES)",
                 acaoB: {},
                 fonte: "NASA – ORION POWER SYSTEMS SPECIFICATIONS."
@@ -144,8 +143,8 @@ function missoesFixas() {
                 id: "fixa1",
                 titulo: "STUDYING LIVING SAMPLES (OSDR)",
                 descricao: "THE OSDR IS A BIG LIBRARY OF SCIENCE DATA. IT SHOWS HOW THE HUMAN BODY AND TINY LIVING THINGS REACT WHEN THERE IS ALMOST NO GRAVITY.",
-                opcaoATexto: "STUDY IT CLOSELY (-10 ENERGY, +25 RESEARCH)",
-                acaoA: { bateriaTotal: -10, pesquisaTotal: 25 },
+                opcaoATexto: "STUDY IT CLOSELY (-10 ENERGY, +15 RESEARCH)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 15 },
                 opcaoBTexto: "THROW THE SAMPLE AWAY (0 ENERGY, 0 RESOURCES)",
                 acaoB: {},
                 fonte: "NASA – OPEN SCIENCE DATA REPOSITORY (OSDR)."
@@ -167,18 +166,18 @@ function missoesFixas() {
                 id: "fixa1",
                 titulo: "LOOKING FOR LEAKS IN THE MODULE",
                 descricao: "THE SHIP'S AIR PRESSURE IS WATCHED ALL THE TIME TO FIND TINY CRACKS. THEY CAN BE CAUSED BY HEAT CHANGES AND TINY SPACE ROCKS.",
-                opcaoATexto: "SEAL IT EXTRA STRONG (-15 ENERGY, +10 HEALTH)",
-                acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
-                opcaoBTexto: "IGNORE THE SMALL WARNING (0 ENERGY, -15 HEALTH)",
-                acaoB: { saudeTripulacao: -15 },
+                opcaoATexto: "SEAL IT EXTRA STRONG (-10 ENERGY, +10 HEALTH)",
+                acaoA: { bateriaTotal: -10, saudeTripulacao: 10 },
+                opcaoBTexto: "IGNORE THE SMALL WARNING (0 ENERGY, -10 HEALTH)",
+                acaoB: { saudeTripulacao: -10 },
                 fonte: "NASA – CABIN PRESSURE AND LEAK DETECTION PROTOCOLS."
             },
             {
                 id: "fixa2",
                 titulo: "CHECKING THE NAVIGATION SYSTEMS",
                 descricao: "HOUSTON SENDS COMPUTER CODE TO THE SHIP. IT MAKES THE ONBOARD COMPUTERS AND THE SELF-STEERING SYSTEM WORK BETTER.",
-                opcaoATexto: "DOWNLOAD THE WHOLE PACKAGE (-20 ENERGY, +15 RESEARCH)",
-                acaoA: { bateriaTotal: -20, pesquisaTotal: 15 },
+                opcaoATexto: "DOWNLOAD THE WHOLE PACKAGE (-10 ENERGY, +15 RESEARCH)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 15 },
                 opcaoBTexto: "ONLY FIX THE BUGS (-5 ENERGY, +5 RESEARCH)",
                 acaoB: { bateriaTotal: -5, pesquisaTotal: 5 },
                 fonte: "NASA – FLIGHT SOFTWARE ENGINEERING STANDARDS."
@@ -190,8 +189,8 @@ function missoesFixas() {
                 id: "fixa1",
                 titulo: "CHECKING THE SHIP'S STRUCTURAL INTEGRITY",
                 descricao: "CHECK THE OUTSIDE AND THE FRAME OF THE SPACESHIP TO FIND POSSIBLE DAMAGE CAUSED BY THE SPACE ENVIRONMENT.",
-                opcaoATexto: "PERFORM A DETAILED INSPECTION (-15 ENERGY, +10 HEALTH)",
-                acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
+                opcaoATexto: "PERFORM A DETAILED INSPECTION (-10 ENERGY, +10 HEALTH)",
+                acaoA: { bateriaTotal: -10, saudeTripulacao: 10 },
                 opcaoBTexto: "PERFORM A BASIC INSPECTION (0 ENERGY, +5 RESEARCH)",
                 acaoB: { pesquisaTotal: 5 },
                 fonte: "NASA – ORION REFERENCE GUIDE."
@@ -200,10 +199,10 @@ function missoesFixas() {
                 id: "fixa2",
                 titulo: "SMALL THRUSTER TEST (RCS)",
                 descricao: "THE RCS USES SMALL ROCKET PUSHERS TO TURN THE CAPSULE AND KEEP IT STEADY IN EMPTY SPACE.",
-                opcaoATexto: "TEST EVERYTHING (-20 ENERGY, +10 RESEARCH)",
-                acaoA: { bateriaTotal: -20, pesquisaTotal: 10 },
-                opcaoBTexto: "TEST JUST A PART (-5 ENERGY, 0 RESOURCES)",
-                acaoB: { bateriaTotal: -5 },
+                opcaoATexto: "TEST EVERYTHING (-10 ENERGY, +10 RESEARCH)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 10 },
+                opcaoBTexto: "TEST JUST A PART (0 ENERGY, +5 RESEARCH)",
+                acaoB: { pesquisaTotal: 5 },
                 fonte: "NASA – ORION REACTION CONTROL SYSTEM MANUAL."
             }
         ];
@@ -213,8 +212,8 @@ function missoesFixas() {
                 id: "fixa1",
                 titulo: "CREW STRESS REPORT",
                 descricao: "WATCHING HOW THE CREW FEELS AND ACTS. THEY HAVE BEEN FAR FROM HOME IN DEEP SPACE FOR MANY DAYS IN A ROW.",
-                opcaoATexto: "TIME TO REST FOR THE CREW (-10 OXYGEN, +20 HEALTH)",
-                acaoA: { oxigenTotal: -10, saudeTripulacao: 20 },
+                opcaoATexto: "TIME TO REST FOR THE CREW (-5 OXYGEN, +10 HEALTH)",
+                acaoA: { oxigenTotal: -5, saudeTripulacao: 10 },
                 opcaoBTexto: "KEEP WORKING HARD (0 OXYGEN, +10 RESEARCH)",
                 acaoB: { pesquisaTotal: 10 },
                 fonte: "NASA – BEHAVIORAL HEALTH AND PERFORMANCE (BHP) GUIDELINES."
@@ -237,8 +236,8 @@ function missoesFixas() {
                 id: "fixa1",
                 titulo: "CHECKING THE AIR PRESSURE CONTROL SYSTEM.",
                 descricao: "SAFETY VALVES THAT LET OUT EXTRA AIR. THEY STOP THE PRESSURE FROM GETTING TOO HIGH INSIDE THE DOOR AND THE TANKS.",
-                opcaoATexto: "CLEAN EVERYTHING (-15 ENERGY, +10 HEALTH)",
-                acaoA: { bateriaTotal: -15, saudeTripulacao: 10 },
+                opcaoATexto: "CLEAN EVERYTHING (-10 ENERGY, +10 HEALTH)",
+                acaoA: { bateriaTotal: -10, saudeTripulacao: 10 },
                 opcaoBTexto: "DO THE REPAIR LATER (0 ENERGY, -5 HEALTH)",
                 acaoB: { saudeTripulacao: -5 },
                 fonte: "NASA – PRESSURE RELIEF MECHANISMS ENGINEERING."
@@ -247,8 +246,8 @@ function missoesFixas() {
                 id: "fixa2",
                 titulo: "COMPUTER HEAT CHECK",
                 descricao: "THE SHIP'S MAIN COMPUTER BRAINS GET HOT. LOOPS OF COOLING LIQUID CARRY THE HEAT AWAY.",
-                opcaoATexto: "RESTART WITH COOLING (-10 ENERGY, +5 RESEARCH)",
-                acaoA: { bateriaTotal: -10, pesquisaTotal: 5 },
+                opcaoATexto: "RESTART WITH COOLING (-10 ENERGY, +10 RESEARCH)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 10 },
                 opcaoBTexto: "KEEP RUNNING HOT (0 ENERGY, 0 RESOURCES)",
                 acaoB: {},
                 fonte: "NASA – AVIONICS THERMAL CONTROL SYSTEM."
@@ -270,10 +269,10 @@ function missoesFixas() {
                 id: "fixa2",
                 titulo: "PROPELLANT TANK MONITORING",
                 descricao: "ORION USES SPECIAL PROPELLANTS TO POWER ITS ENGINES. THEIR PRESSURE AND STORAGE CONDITIONS MUST BE MONITORED DURING THE MISSION.",
-                opcaoATexto: "PERFORM A COMPLETE TANK CHECK (-15 ENERGY, +10 RESEARCH)",
-                acaoA: { bateriaTotal: -15, pesquisaTotal: 10 },
-                opcaoBTexto: "MONITOR THE PRESSURE LEVELS (-5 ENERGY, 0 RESOURCES)",
-                acaoB: { bateriaTotal: -5 },
+                opcaoATexto: "PERFORM A COMPLETE TANK CHECK (-10 ENERGY, +10 RESEARCH)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 10 },
+                opcaoBTexto: "MONITOR THE PRESSURE LEVELS (0 ENERGY, +5 RESEARCH)",
+                acaoB: { pesquisaTotal: 5 },
                 fonte: "NASA – ARTEMIS II REFERENCE GUIDE."
             }
         ];
@@ -283,18 +282,18 @@ function missoesFixas() {
                 id: "fixa1",
                 titulo: "OUTSIDE CAMERA SETUP",
                 descricao: "ADJUSTING THE SUPER SHARP CAMERA LENSES. THEY TAKE PICTURES OF THE MOON'S ROCKS AND OTHER MISSION VIEWS.",
-                opcaoATexto: "TAKE SUPER SHARP PHOTOS (-10 ENERGY, +20 RESEARCH)",
-                acaoA: { bateriaTotal: -10, pesquisaTotal: 20 },
-                opcaoBTexto: "SAVE ENERGY MODE (-5 ENERGY, +5 RESEARCH)",
-                acaoB: { bateriaTotal: -5, pesquisaTotal: 5 },
+                opcaoATexto: "TAKE SUPER SHARP PHOTOS (-10 ENERGY, +15 RESEARCH)",
+                acaoA: { bateriaTotal: -10, pesquisaTotal: 15 },
+                opcaoBTexto: "SAVE ENERGY MODE (0 ENERGY, +5 RESEARCH)",
+                acaoB: { pesquisaTotal: 5 },
                 fonte: "NASA – ARTEMIS OPTICAL NAVIGATION AND IMAGERY."
             },
             {
                 id: "fixa2",
                 titulo: "FOOD SUPPLY AND NUTRITION CHECK",
                 descricao: "CHECKING THE CREW'S FOOD SUPPLY TO MAKE SURE THERE IS ENOUGH FOOD AND THAT THE MEALS PROVIDE THE NUTRIENTS NEEDED DURING THE MISSION.",
-                opcaoATexto: "ORGANIZE THE FOOD SUPPLY (-10 ENERGY, +15 HEALTH)",
-                acaoA: { bateriaTotal: -10, saudeTripulacao: 15 },
+                opcaoATexto: "ORGANIZE THE FOOD SUPPLY (-10 ENERGY, +10 HEALTH)",
+                acaoA: { bateriaTotal: -10, saudeTripulacao: 10 },
                 opcaoBTexto: "PERFORM A BASIC FOOD INVENTORY (0 ENERGY, +5 RESEARCH)",
                 acaoB: { pesquisaTotal: 5 },
                 fonte: "NASA – SPACE FOOD SYSTEMS."
@@ -346,44 +345,44 @@ function sortearMissao() {
         {
             titulo: "SUN STORM ALERT (CME - DONKI)",
             descricao: "DONKI IS A NASA TOOL THAT WATCHES THE SUN. SOMETIMES THE SUN THROWS OUT HUGE CLOUDS OF HOT GAS, CALLED SOLAR STORMS. THEY CAN SEND DANGEROUS RAYS TOWARD THE SPACESHIP.",
-            opcaoATexto: "BUILD A SAFE SHELTER FROM THE RAYS <strong>(-25 ENERGY, +15 CREW HEALTH.)</strong>",
-            acaoA: { bateriaTotal: -25, saudeTripulacao: 15, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "TAKE A CHANCE <strong>(0 ENERGY, -30 HEALTH)</strong>",
-            acaoB: { bateriaTotal: 0, saudeTripulacao: -30, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoATexto: "BUILD A SAFE SHELTER FROM THE RAYS <strong>(-10 ENERGY, +10 CREW HEALTH)</strong>",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoBTexto: "TAKE A CHANCE <strong>(0 ENERGY, -10 HEALTH)</strong>",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: -10, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – DONKI"
         },
         {
             titulo: "LOSING POWER IN THE MOON'S SHADOW",
             descricao: "THIS HAPPENS WHEN THE SPACESHIP FLIES INTO THE SHADOW OF A MOON OR PLANET. THE SUNLIGHT IS BLOCKED, SO THE SOLAR PANELS MAKE LESS POWER. THE BATTERIES MUST HELP FOR A WHILE.",
-            opcaoATexto: "TURN ON THE BACKUP GENERATOR <strong>(-20 OXYGEN, +15 ENERGY)</strong>",
-            acaoA: { bateriaTotal: 15, saudeTripulacao: 0, oxigenTotal: -20, pesquisaTotal: 0 },
-            opcaoBTexto: "SAVE AS MUCH ENERGY AS POSSIBLE <strong>(0 ENERGY, -15 HEALTH)</strong>",
-            acaoB: { bateriaTotal: 0, saudeTripulacao: -15, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoATexto: "TURN ON THE BACKUP GENERATOR <strong>(-5 OXYGEN, +10 ENERGY)</strong>",
+            acaoA: { bateriaTotal: 10, saudeTripulacao: 0, oxigenTotal: -5, pesquisaTotal: 0 },
+            opcaoBTexto: "SAVE AS MUCH ENERGY AS POSSIBLE <strong>(0 ENERGY, -5 HEALTH)</strong>",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: -5, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – LUNAR ORBITAL MECHANICS"
         },
         {
             titulo: "CABIN AIR PRESSURE ALERT",
             descricao: "THE AIR PRESSURE INSIDE THE ORION CAPSULE DROPPED SUDDENLY. THIS CAN BE DANGEROUS FOR THE CREW. SPECIAL PRESSURE SUITS KEEP ASTRONAUTS SAFE IN EMERGENCIES.",
-            opcaoATexto: "FIX IT FAST (-15 ENERGY, +10 HEALTH)",
-            acaoA: { bateriaTotal: -15, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "TURN THE VALVE BY HAND (-5 OXYGEN, -10 HEALTH)",
-            acaoB: { bateriaTotal: 0, saudeTripulacao: -10, oxigenTotal: -5, pesquisaTotal: 0 },
+            opcaoATexto: "FIX IT FAST (-10 ENERGY, +10 HEALTH)",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoBTexto: "TURN THE VALVE BY HAND (-5 OXYGEN, +5 HEALTH)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: 5, oxigenTotal: -5, pesquisaTotal: 0 },
             fonte: "NASA – CREW SYSTEMS"
         },
         {
             titulo: "TINY SPACE ROCK HIT",
             descricao: "A TINY PIECE OF ROCK FROM SPACE HITS THE SPACESHIP SUPER FAST.",
-            opcaoATexto: "SEAL THE HOLE WITH RESIN (-10 ENERGY, +5 HEALTH)",
-            acaoA: { bateriaTotal: -10, saudeTripulacao: 5, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "LEAVE A SMALL LEAK (-15 OXYGEN, 0 ENERGY)",
-            acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -15, pesquisaTotal: 0 },
+            opcaoATexto: "SEAL THE HOLE WITH RESIN (-10 ENERGY, +10 HEALTH)",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoBTexto: "LEAVE A SMALL LEAK (-10 OXYGEN, 0 ENERGY)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -10, pesquisaTotal: 0 },
             fonte: "NASA – HYPERVELOCITY IMPACT TECHNOLOGY (HVIT)."
         },
         {
             titulo: "FALSE FIRE ALARM",
             descricao: "THE SMOKE ALARM WENT OFF BY MISTAKE. TINY DUST BITS FLOATING IN ZERO GRAVITY TRICKED THE SENSORS.",
-            opcaoATexto: "BLOW FRESH AIR THROUGH THE CABIN (-15 OXYGEN, +5 HEALTH)",
-            acaoA: { bateriaTotal: 0, saudeTripulacao: 5, oxigenTotal: -15, pesquisaTotal: 0 },
+            opcaoATexto: "BLOW FRESH AIR THROUGH THE CABIN (-10 OXYGEN, +10 HEALTH)",
+            acaoA: { bateriaTotal: 0, saudeTripulacao: 10, oxigenTotal: -10, pesquisaTotal: 0 },
             opcaoBTexto: "TURN OFF THE ALARM AND CHECK IT (0 RESOURCES)",
             acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – SPACECRAFT FIRE SAFETY DEMONSTRATION (SAFFIRE)."
@@ -391,8 +390,8 @@ function sortearMissao() {
         {
             titulo: "SPACE RAYS DATA CHANCE (GCR)",
             descricao: "GCRS (GALACTIC COSMIC RAYS) ARE SUPER FAST TINY PARTICLES. THEY COME FROM FAR OUTSIDE OUR SOLAR SYSTEM AND FLY ALL AROUND DEEP SPACE.",
-            opcaoATexto: "COLLECT LOTS OF DATA (-20 ENERGY, +35 RESEARCH)",
-            acaoA: { bateriaTotal: -20, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 35 },
+            opcaoATexto: "COLLECT LOTS OF DATA (-10 ENERGY, +15 RESEARCH)",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 15 },
             opcaoBTexto: "SAY NO TO KEEP THE CREW SAFE (0 ENERGY, +10 HEALTH)",
             acaoB: { bateriaTotal: 0, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – GALACTIC COSMIC RAY MEASUREMENTS AND SHIELDING."
@@ -400,55 +399,55 @@ function sortearMissao() {
         {
             titulo: "VIDEO CALL BROKEN WITH HOUSTON",
             descricao: "THE RADIO LINK FOR VIDEO STOPPED WORKING FOR A WHILE. THE CREW MUST USE TEXT MESSAGES INSTEAD.",
-            opcaoATexto: "RESTART THE MAIN ANTENNA (-15 ENERGY, +10 RESEARCH)",
-            acaoA: { bateriaTotal: -15, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
-            opcaoBTexto: "USE THE TEXT CHANNEL (-5 ENERGY, 0 RESOURCES)",
-            acaoB: { bateriaTotal: -5, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoATexto: "RESTART THE MAIN ANTENNA (-10 ENERGY, +10 RESEARCH)",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
+            opcaoBTexto: "USE THE TEXT CHANNEL (0 ENERGY, 0 RESOURCES)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – SPACECRAFT COMMUNICATIONS AND NAVIGATION (SCAN)."
         },
         {
             titulo: "THE X-BAND MACHINE IS TOO HOT",
             descricao: "THE X-BAND IS A RADIO SIGNAL USED TO SEND BIG SCIENCE FILES TO EARTH. SENDING SO MUCH DATA MAKES THE MACHINE VERY HOT.",
-            opcaoATexto: "TURN OFF EXTRA SYSTEMS (-10 ENERGY, +5 RESEARCH)",
-            acaoA: { bateriaTotal: -10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 5 },
-            opcaoBTexto: "USE SUPER COLD COOLING (-20 ENERGY, +10 HEALTH)",
-            acaoB: { bateriaTotal: -20, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoATexto: "TURN OFF EXTRA SYSTEMS (-5 ENERGY, +5 RESEARCH)",
+            acaoA: { bateriaTotal: -5, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 5 },
+            opcaoBTexto: "USE SUPER COLD COOLING (-10 ENERGY, +10 HEALTH)",
+            acaoB: { bateriaTotal: -10, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – DEEP SPACE COMMUNICATIONS RADIO SYSTEMS."
         },
         {
             titulo: "SPACESHIP PULLED OFF COURSE",
             descricao: "WHEN THE SPACESHIP FLIES NEAR A MOON OR PLANET, ITS GRAVITY CAN PULL IT A LITTLE OFF ITS PATH.",
-            opcaoATexto: "FIRE THE ENGINES AGAIN (-30 ENERGY, +15 RESEARCH)",
-            acaoA: { bateriaTotal: -30, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 15 },
-            opcaoBTexto: "SLOWLY FIX THE PATH (-10 OXYGEN, 0 ENERGY)",
-            acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -10, pesquisaTotal: 0 },
+            opcaoATexto: "FIRE THE ENGINES AGAIN (-10 ENERGY, +10 RESEARCH)",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
+            opcaoBTexto: "SLOWLY FIX THE PATH (-5 OXYGEN, 0 ENERGY)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: 0, oxigenTotal: -5, pesquisaTotal: 0 },
             fonte: "NASA – ORBITAL MECHANICS AND PERTURBATION ANALYSIS."
         },
         {
             titulo: "TROUBLE WITH THE TRASH SYSTEM",
             descricao: "THE SYSTEM THAT COLLECTS AND STORES TRASH IS BROKEN. THIS CAN MAKE THE CABIN DIRTY AND HARD TO LIVE IN.",
-            opcaoATexto: "ISOLATE THE DAMAGED SYSTEM AND USE EMERGENCY STORAGE (-10 ENERGY, +5 HEALTH)",
-            acaoA: { bateriaTotal: -10, saudeTripulacao: 5, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "MANUALLY ORGANIZE AND STORE THE WASTE (-5 ENERGY, +10 HEALTH)",
-            acaoB: { bateriaTotal: -5, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoATexto: "ISOLATE THE DAMAGED SYSTEM AND USE EMERGENCY STORAGE (-10 ENERGY, +10 HEALTH)",
+            acaoA: { bateriaTotal: -10, saudeTripulacao: 10, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoBTexto: "MANUALLY ORGANIZE AND STORE THE WASTE (-5 ENERGY, +5 HEALTH)",
+            acaoB: { bateriaTotal: -5, saudeTripulacao: 5, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – ORION CREW SYSTEMS"
         },
         {
             titulo: "BEST DIRECTION FOR THE SOLAR PANELS",
             descricao: "THE SOLAR PANELS ON ORION CAN TURN TOWARD THE SUN. THE BETTER THEY FACE THE SUNLIGHT, THE MORE ELECTRICITY THEY MAKE.",
-            opcaoATexto: "SAVE ENERGY IN THE BATTERIES (+25 ENERGY, 0 WEAR)",
-            acaoA: { bateriaTotal: 25, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
-            opcaoBTexto: "SEND ENERGY TO RESEARCH (+15 ENERGY, +20 RESEARCH)",
-            acaoB: { bateriaTotal: 15, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 20 },
+            opcaoATexto: "SAVE ENERGY IN THE BATTERIES (+15 ENERGY, 0 WEAR)",
+            acaoA: { bateriaTotal: 15, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoBTexto: "SEND ENERGY TO RESEARCH (+10 ENERGY, +10 RESEARCH)",
+            acaoB: { bateriaTotal: 10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
             fonte: "NASA – SOLAR ARRAY PERFORMANCE REPORTS."
         },
         {
             titulo: "STRANGE NOISE AT THE BACK OF THE SHIP",
             descricao: "THE SPACESHIP IS MAKING CREAKY SOUNDS. THEY MIGHT COME FROM HEAT CHANGES OR FROM PARTS MOVING.",
-            opcaoATexto: "CHECK WITH A ROBOT CAMERA (-10 ENERGY, +10 RESEARCH)",
-            acaoA: { bateriaTotal: -10, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
-            opcaoBTexto: "IGNORE THE HEAT NOISE (0 RESOURCES, -10 HEALTH)",
-            acaoB: { bateriaTotal: 0, saudeTripulacao: -10, oxigenTotal: 0, pesquisaTotal: 0 },
+            opcaoATexto: "CHECK WITH A ROBOT CAMERA (-5 ENERGY, +10 RESEARCH)",
+            acaoA: { bateriaTotal: -5, saudeTripulacao: 0, oxigenTotal: 0, pesquisaTotal: 10 },
+            opcaoBTexto: "IGNORE THE HEAT NOISE (0 RESOURCES, -5 HEALTH)",
+            acaoB: { bateriaTotal: 0, saudeTripulacao: -5, oxigenTotal: 0, pesquisaTotal: 0 },
             fonte: "NASA – SPACECRAFT STRUCTURAL DYNAMICS AND ACOUSTICS."
         }
     ];
