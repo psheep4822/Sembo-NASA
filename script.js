@@ -1,4 +1,9 @@
 
+const CHEATS = {
+    ativo: new URLSearchParams(location.search).has("cheat"), // só liga com ?cheat na URL
+    pularMinigame: false
+};
+
 // variáveis globais usadas durante todo o código
 let dia = 1
 let bateriaTotal = 100
