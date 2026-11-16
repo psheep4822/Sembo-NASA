@@ -473,7 +473,7 @@ function sortearMissao() {
         document.getElementById("sortear").classList.add("escondido");
     }
 
-// a missão sorteada está esperando o jogador escolher A ou B?
+// a missão sorteada está esperando o jogador escolher A ou B
 function sorteadaPendente() {
     return missaoAtual !== null && !sorteadaFeita;
 }
@@ -829,7 +829,7 @@ function desenharCamada(ctx, img, y, altura, vel) {
     }
 }
 
-// ---------- desenho ----------
+// desenho
 function desenharMinigame() {
     const canvas = document.getElementById("minigameCanvas");
     const ctx = canvas.getContext("2d");
@@ -880,7 +880,7 @@ function desenharMinigame() {
         }
     }
 }
-// ---------- controles ----------
+//controles minigame
 document.addEventListener("keydown", function (e) {
     // cheats: P = vencer o minigame, O = falhar (testa a penalidade de 20%)
     if (CHEATS.ativo && mg && mg.ativo) {
@@ -902,8 +902,7 @@ if (canvasMG) canvasMG.addEventListener("pointerdown", pularMinigame);
 
 atualizarPainel()
 
-// ---------- cheats de console (só com ?cheat) ----------
-// exemplos: cheat.dia(10)  |  cheat.stats(100, 100, 100, 80)  |  CHEATS.pularMinigame = true
+
 const cheat = {
     // pula para o dia n (1 a 10)
     dia(n) {
