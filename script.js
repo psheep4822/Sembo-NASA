@@ -43,11 +43,11 @@ function atualizarCenario() {
 
 // atualiza as informações/variáveis no "painel" diariamente
 function atualizarPainel() {
-    document.getElementById("pesquisaNave").innerHTML = "Research Points: " + pesquisaTotal
-    document.getElementById("saudeTripulacao").innerHTML = "Crew Health: " + saudeTripulacao
-    document.getElementById("bateriaNave").innerHTML = "Spaceship Energy: " + bateriaTotal
-    document.getElementById("oxigenNave").innerHTML = "Spaceship Oxygen: " + oxigenTotal
-    document.getElementById("diasPassados").innerHTML = "Current Day: " + dia
+    document.getElementById("pesquisaNave").innerHTML = "RESEARCH POINTS: " + pesquisaTotal
+    document.getElementById("saudeTripulacao").innerHTML = "CREW HEALTH: " + saudeTripulacao
+    document.getElementById("bateriaNave").innerHTML = "SPACESHIP ENERGY: " + bateriaTotal
+    document.getElementById("oxigenNave").innerHTML = "SPACESHIP OXYGEN: " + oxigenTotal
+    document.getElementById("diasPassados").innerHTML = "CURRENT DAY: " + dia
 
     atualizarCenario();
 }
