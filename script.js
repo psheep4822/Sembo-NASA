@@ -1,10 +1,3 @@
-// ---------- MODO TESTE (cheats) ----------
-// só funciona se a página for aberta com ?cheat no endereço, ex.: index.html?cheat
-// para desativar de vez antes de entregar, troque a linha do "ativo" por: ativo: false
-const CHEATS = {
-    ativo: new URLSearchParams(location.search).has("cheat"),
-    pularMinigame: false     // true = a missão passa direto, sem abrir o minigame
-};
 
 // variáveis globais usadas durante todo o código
 let dia = 1
